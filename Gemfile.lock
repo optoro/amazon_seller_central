@@ -2,16 +2,23 @@ GEM
   remote: http://rubygems.org/
   specs:
     diff-lcs (1.1.2)
+    faker (0.9.5)
+      i18n (~> 0.4)
+    ffi (1.0.9)
     git (1.2.5)
     guard (0.5.0)
       thor (~> 0.14.6)
     guard-rspec (0.4.0)
       guard (>= 0.4.0)
+    i18n (0.6.0)
     jeweler (1.6.3)
       bundler (~> 1.0)
       git (>= 1.2.5)
       rake
+    libnotify (0.5.6)
     rake (0.9.2)
+    rb-inotify (0.8.5)
+      ffi (>= 0.5.0)
     rcov (0.9.9)
     rspec (2.3.0)
       rspec-core (~> 2.3.0)
@@ -22,14 +29,20 @@ GEM
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.3.0)
     thor (0.14.6)
+    yard (0.7.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   bundler (~> 1.0.0)
+  faker
+  ffi
   guard
   guard-rspec
   jeweler (~> 1.6.3)
+  libnotify
+  rb-inotify (>= 0.8.5)
   rcov
   rspec (~> 2.3.0)
+  yard
