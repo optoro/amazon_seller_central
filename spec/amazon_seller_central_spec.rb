@@ -25,4 +25,9 @@ describe "AmazonSellerCentral" do
     AmazonSellerCentral.configuration.login_email.should == @email
     AmazonSellerCentral.configuration.login_password.should == @password
   end
+
+  it "allows access to a singleton mechanizer" do
+    mech = AmazonSellerCentral.mechanizer
+    mech.should be_instance_of(AmazonSellerCentral::Mechanizer)
+  end
 end

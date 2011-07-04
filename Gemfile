@@ -1,4 +1,6 @@
 source "http://rubygems.org"
+
+gem "mechanize", ">= 1.0.0"
 # Add dependencies required to use your gem here.
 # Example:
 #   gem "activesupport", ">= 2.3.5"
@@ -12,9 +14,11 @@ group :development do
   gem "rcov", ">= 0"
   gem 'yard'
   gem 'guard'
-  gem 'rb-inotify', '>= 0.8.5'
   gem 'guard-rspec'
+  gem 'rb-inotify', '>= 0.8.5'
   gem 'libnotify'
   gem 'ffi'
   gem 'faker'
+  gem 'fakeweb'
+  gem 'ruby-debug'
 end
