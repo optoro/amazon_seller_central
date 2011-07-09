@@ -16,7 +16,7 @@ module AmazonSellerCentral
     end
 
     def agent
-      @agent ||= Mechanize.new {|ag| ag.user_agent_alias = MASQUERADE_AGENTS.rand }
+      @agent ||= Mechanize.new {|ag| ag.user_agent_alias = MASQUERADE_AGENTS[rand(MASQUERADE_AGENTS.size)] }
     end
 
     def login_to_seller_central

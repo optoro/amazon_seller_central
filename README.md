@@ -1,11 +1,15 @@
 # amazon_seller_central
 
-This gem is intended to wrap Amazon's SellerCentral pages with a Ruby API. Currently this gem supports accessing buyer feedback only.
+This gem is intended to wrap Amazon's SellerCentral pages with a Ruby
+API. Currently this gem supports accessing buyer feedback only.
 
-## Configuration
+## Setup
 
-You need to provide the email address and password you use to login to
-Amazon SellerCentral via the `AmazonSellerCentral.configure` method:
+You need to require the gem and then provide the email address and
+password you use to login to Amazon SellerCentral via the
+`AmazonSellerCentral.configure` method:
+
+    require 'amazon_seller_central'
 
     AmazonSellerCentral.configure do |config|
       config.login_email    "seller@mydomain.com"
