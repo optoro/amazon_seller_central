@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "amazon_seller_central"
   gem.homepage = "http://github.com/optoro/amazon_seller_central"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Ruby API to access Amazon's SellerCentral}
+  gem.description = %Q{This gem is intended to wrap Amazon's SellerCentral pages with a Ruby API. Currently this gem supports accessing buyer feedback only.}
   gem.email = "dev@optoro.com"
   gem.authors = ["optoro"]
   # dependencies defined in Gemfile

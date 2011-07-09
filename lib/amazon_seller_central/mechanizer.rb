@@ -29,7 +29,19 @@ module AmazonSellerCentral
     end
 
     def follow_link_with(options)
-      @last_page = agent.click(last_page.link_with(options))
+      raise AgentResetError unless last_page
+      link = last_page.link_with(options)
+      raise LinkNotFoundError unless link
+      @last_page = agent.click(link)
     end
+
+    def reset!
+      @agent     = nil
+      @last_page = nil
+    end
+
+    class LinkNotFoundError < StandardError; end
+    class AgentResetError < StandardError; end
+
   end
 end
