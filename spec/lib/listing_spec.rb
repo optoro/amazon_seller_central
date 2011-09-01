@@ -70,4 +70,9 @@ describe "Listing" do
     @listing.low_price = nil
     @listing.low_price.should be_nil
   end
+
+  it "is a little helpful ;)" do
+    #STDOUT.should_receive(:puts).with(/InventoryPage#apply_listings/)
+    @listing.save.should be_false
+  end
 end

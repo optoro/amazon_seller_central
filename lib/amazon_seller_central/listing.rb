@@ -1,4 +1,6 @@
 module AmazonSellerCentral
+  # It turns out you can't get low_price without executing a sub-request, so
+  # I'm leaving it alone for now.
   class Listing
     module ClassMethods
       def is_asin?(value)
@@ -30,6 +32,11 @@ module AmazonSellerCentral
     end
     def low_price=(low_price)
       @low_price_cents = low_price.kind_of?(Numeric) ? (low_price * 100).round : low_price
+    end
+
+    def save
+      puts "Sorry, you want to send this listing as part of an array to the InventoryPage it came from, with InventoryPage#apply_listings"
+      false
     end
   end
 end

@@ -1,6 +1,7 @@
 module AmazonSellerCentral
   class InventoryPage < Page
     def initialize(options={})
+      @listings_applied = false
       @page_no  = options.delete(:page_no)
       @uri_base = options.delete(:uri_base)
       super
@@ -27,7 +28,8 @@ module AmazonSellerCentral
       @listings = nil if rescan
       @listings ||= begin
                       set = ListingSet.new
-                      @page.parser.css('table.manageTable tr').select{|r| r['id'] =~ /^sku-/ }.each do |row|
+                      # being more specific here breaks on some pages
+                      @page.parser.css('tr').select{|r| r['id'] =~ /^sku-/ && r.css('td').size == 12 }.each do |row|
                         set << listing_row_to_object(row)
                       end
                       set
@@ -36,6 +38,10 @@ module AmazonSellerCentral
     alias :parse :listings
 
     def apply_listings(new_listings)
+      if @listings_applied
+        raise UnsupportedModification.new("Can't apply listing data twice from the same page object. Refetch this page before attempting to update listings")
+      end
+
       form = @page.form_with(:name => 'itemSummaryForm')
       new_listings.each do |l|
         if listings(true).find(l.sku).price.nil? && l.price != nil
@@ -45,7 +51,9 @@ module AmazonSellerCentral
         form["inv|#{l.sku}|#{l.asin}"]   = l.quantity
         form["price|#{l.sku}|#{l.asin}"] = l.price 
       end
+      form['formOperation'] = 'saveChanges'
       r = form.submit
+      @listings_applied = true
       true
     end
 
@@ -103,14 +111,16 @@ module AmazonSellerCentral
         end
       end
 
+      # Turns out you can't get this without a subrequest
       def get_low_price(td)
-        if td.css('a').size == 0 # no listing complete
-          nil
-        elsif td.css('a div').size == 1
-          true
-        else
-          td.text.gsub(/[^\d.]/,'').to_f
-        end
+        nil
+        # if td.css('a').size == 0 # no listing complete
+        #   nil
+        # elsif td.css('a div').size == 1
+        #   true
+        # else
+        #   td.text.gsub(/[^\d.]/,'').to_f
+        # end
       end
   end
 end
