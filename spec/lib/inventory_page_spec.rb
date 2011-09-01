@@ -8,13 +8,10 @@ describe "InventoryPage" do
   end
 
   before :each do
+    mock_seller_central_page_results!
     @first_page  = AmazonSellerCentral::Inventory.load_first_page
     @second_page = @first_page.next_page
     @last_page   = @second_page.next_page
-  end
-
-  after :all do
-    mock_seller_central_page_results!
   end
 
   it_should_behave_like "all pages"
