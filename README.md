@@ -1,7 +1,8 @@
-# amazon_seller_central
+# amazon\_seller\_central
 
 This gem is intended to wrap Amazon's SellerCentral pages with a Ruby
-API. Currently this gem supports accessing buyer feedback only.
+API. Currently this gem supports accessing buyer feedback, accessing
+current inventory listings, and simple updates to those listings.
 
 ## Setup
 
@@ -36,14 +37,50 @@ the block form:
       feedback.rating            # an integer, 1 - 5
     end
 
-## ToDo
+## Inventory Access
+
+You can access current inventory in much the same way as feedback:
+
+    AmazonSellerCentral::Inventory.each_page do |page|
+      listings = page.listings
+      listing = listings.first
+
+      listing.sku          # <Your sku for this listing>
+      listing.asin         # An ASIN, e.g. B003962DXE
+      listing.product_name # The name of the product
+      listing.created_at   # a Time object representing when you created this listing
+      listing.quantity     # an integer
+      listing.condition    # "New" or "Used - Very Good" or whichever
+      listing.price_cents  # an integer of cents. listing.price is also available to get dollars
+      listing.status       # "Open", "Closed (Out of Stock)", or "Incomplete"
+    end
+
+## Updating Inventory
+
+Currently this gem supports updating a listing you've already created
+via the web interface or some other API. Future versions may include
+creating listing entries from scratch.
+
+To update a listing, you use `ListingPage#apply_listings`, like so:
+
+    # alternately get a page inside the 'each_page' method above
+    page = AmazonSellerCentral::Inventory.load_first_page
+    # Updating a listing for my sku, "PR6902-2":
+    listing = page.listings.find("PR6902-2")
+    listing.quantity = 10
+    listing.price_cents = 1599
+    # Note the array syntax here allows you to update multiple listings
+    # on this page at the same time.
+    page.apply_listings([listing])
+
+## TODO
 
 * Access to more sections of Amazon SellerCentral.
 * Rework Mechanize access to allow parallel / thread-safe usage
 * **Note**: This library is likely not thread-safe. (It's untested)
 
-## Contributing to amazon_seller_central
- 
+## Contributing to amazon\_seller\_central
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project

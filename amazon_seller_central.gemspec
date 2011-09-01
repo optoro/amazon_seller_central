@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["optoro"]
-  s.date = %q{2011-07-09}
+  s.date = %q{2011-09-01}
   s.description = %q{This gem is intended to wrap Amazon's SellerCentral pages with a Ruby API. Currently this gem supports accessing buyer feedback only.}
   s.email = %q{dev@optoro.com}
   s.extra_rdoc_files = [
@@ -31,12 +31,23 @@ Gem::Specification.new do |s|
     "lib/amazon_seller_central/configuration.rb",
     "lib/amazon_seller_central/feedback.rb",
     "lib/amazon_seller_central/feedback_page.rb",
+    "lib/amazon_seller_central/inventory.rb",
+    "lib/amazon_seller_central/inventory_page.rb",
+    "lib/amazon_seller_central/listing.rb",
+    "lib/amazon_seller_central/listing_set.rb",
     "lib/amazon_seller_central/mechanizer.rb",
+    "lib/amazon_seller_central/page.rb",
     "spec/amazon_seller_central_spec.rb",
     "spec/lib/feedback_page_spec.rb",
     "spec/lib/feedback_spec.rb",
+    "spec/lib/inventory_page_spec.rb",
+    "spec/lib/inventory_spec.rb",
+    "spec/lib/listing_set_spec.rb",
+    "spec/lib/listing_spec.rb",
     "spec/lib/mechanizer_spec.rb",
     "spec/spec_helper.rb",
+    "spec/support/page_body_regexen.rb",
+    "spec/support/page_examples.rb",
     "spec/support/sample_pages.rb",
     "spec/support/sample_pages/Feedback Manager.html",
     "spec/support/sample_pages/Feedback Page 1.html",
@@ -44,12 +55,19 @@ Gem::Specification.new do |s|
     "spec/support/sample_pages/Feedback Page Last.html",
     "spec/support/sample_pages/Seller Central Homepage.html",
     "spec/support/sample_pages/Seller Central Redirect.html",
-    "spec/support/sample_pages/Seller Central.html"
+    "spec/support/sample_pages/Seller Central.html",
+    "spec/support/sample_pages/another_listings_page.html",
+    "spec/support/sample_pages/listings_last_page.html",
+    "spec/support/sample_pages/listings_page_1.html",
+    "spec/support/sample_pages/listings_page_2.html",
+    "spec/support/sample_pages/update_inventory_result_from_last_page.html",
+    "spec/support/sample_pages/update_inventory_result_from_page_1.html",
+    "spec/support/sample_pages/update_inventory_result_from_page_2.html"
   ]
   s.homepage = %q{http://github.com/optoro/amazon_seller_central}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.5.2}
+  s.rubygems_version = %q{1.5.0}
   s.summary = %q{Ruby API to access Amazon's SellerCentral}
 
   if s.respond_to? :specification_version then
