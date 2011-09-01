@@ -1,5 +1,12 @@
 module AmazonSellerCentral
   class Listing
+    module ClassMethods
+      def is_asin?(value)
+        value.to_s =~ /^B.{9}$/
+      end
+    end
+    extend ClassMethods
+
     attr_accessor :sku, :asin, :product_name, :created_at, :quantity, :condition, :price_cents, :low_price_cents, :status
 
     alias :qty :quantity

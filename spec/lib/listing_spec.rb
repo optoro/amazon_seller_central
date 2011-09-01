@@ -11,6 +11,11 @@ describe "Listing" do
     end
   end
 
+  it "knows if a string is an asin" do
+    AmazonSellerCentral::Listing.is_asin?("1234").should be_false
+    AmazonSellerCentral::Listing.is_asin?("B003962DXE").should be_true
+  end
+
   it "accepts qty as an alias for quantity" do
     @listing.quantity = 12
     @listing.qty.should == 12
@@ -19,7 +24,6 @@ describe "Listing" do
   end
 
   it "accepts your_price as an alias for price" do
-    puts "setting"
     @listing.price = 12
     @listing.your_price.should == 12
     @listing.your_price = 50

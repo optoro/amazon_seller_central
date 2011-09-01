@@ -1,5 +1,6 @@
 require 'amazon_seller_central/configuration'
 require 'amazon_seller_central/mechanizer'
+require 'amazon_seller_central/listing_set'
 require 'amazon_seller_central/page'
 require 'amazon_seller_central/feedback'
 require 'amazon_seller_central/feedback_page'

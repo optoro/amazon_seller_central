@@ -13,20 +13,25 @@ describe "InventoryPage" do
 
   it_should_behave_like "all pages"
 
+  it "returns a ListingSet for listings" do
+    listings = @first_page.listings
+    listings.should be_kind_of(AmazonSellerCentral::ListingSet)
+  end
+
   it "transforms itself into a set of Listing objects" do
     listings = @first_page.listings
     listings.size.should == 250
 
-    listings[0].sku.should             == "PR48698-2"
-    listings[0].asin.should            == "B001AMUFMA"
-    listings[0].product_name.should    == "Onkyo TX-8555 Stereo Receiver"
-    listings[0].created_at.should      == Time.parse("2011-08-31 18:39:24")
-    listings[0].quantity.should        == 0
-    listings[0].condition.should       == "Used - Very Good"
-    listings[0].price_cents.should     == nil
-    listings[0].low_price.should       == nil
-    listings[0].low_price_cents.should == nil
-    listings[0].status.should          == "Incomplete"
+    listings[27].sku.should             == "PR30122-11"
+    listings[27].asin.should            == "B0019MU9C2"
+    listings[27].product_name.should    == "Battery Brain Platinum"
+    listings[27].created_at.should      == Time.parse("2011-08-31 00:36:22")
+    listings[27].quantity.should        == 0
+    listings[27].condition.should       == "New"
+    listings[27].price_cents.should     == nil
+    listings[27].low_price.should       == nil
+    listings[27].low_price_cents.should == nil
+    listings[27].status.should          == "Incomplete"
 
     listings[1].sku.should             == "PR48458-3"
     listings[1].asin.should            == "B004O0TRDI"
@@ -51,9 +56,35 @@ describe "InventoryPage" do
   end
 
   it "accepts a set of Listing objects to apply updates to the page" do
-    pending
-    listings = [Listing.new, Listing.new, Listing.new]
-    @page.apply_listings(listings).should be_true
-    AmazonSellerCentral.mechanizer.last_page.body.should =~ /success or whatever that message is/
+    listings = @first_page.listings
+    l = listings[0]
+    # l.quantity = 0
+    # l.price = 225.59
+    l.quantity = 2
+    l.price = 220.99
+
+    listings = [l]
+
+    @first_page.apply_listings(listings).should be_true
+
+    (AmazonSellerCentral.mechanizer.last_page.parser.css('div#msg_saveSuccess')[0]['style'] !~ /display: none/).should be_true
+
+  FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/gp/ezdpc-gui/inventory-status/status.html/ref=ag_invmgr_mmap_home', :response => mock_pages[:update_inventory_result_from_page_1])
+    listing = AmazonSellerCentral::Inventory.load_first_page.listings[0]
+    listing.sku.should      == l.sku
+    listing.quantity.should == l.quantity
+    listing.price.should    == l.price
+
+    # clean up test
+    mock_seller_central_page_results!
+  end
+
+  it "raises an unsupported modification error when trying to set the price on an incomplete listing" do
+    listings = @first_page.listings
+    l = listings[27]
+    l.price = 24.26
+    lambda {
+      @first_page.apply_listings([l])
+    }.should raise_exception(AmazonSellerCentral::InventoryPage::UnsupportedModification)
   end
 end

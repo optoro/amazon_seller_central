@@ -23,12 +23,33 @@ module AmazonSellerCentral
                      end
     end
 
-    def listings
-      @page.parser.css('table.manageTable tr').select{|r| r['id'] =~ /^sku-/ }.map do |row|
-        listing_row_to_object(row)
-      end
+    def listings(rescan=false)
+      @listings = nil if rescan
+      @listings ||= begin
+                      set = ListingSet.new
+                      @page.parser.css('table.manageTable tr').select{|r| r['id'] =~ /^sku-/ }.each do |row|
+                        set << listing_row_to_object(row)
+                      end
+                      set
+                    end
     end
     alias :parse :listings
+
+    def apply_listings(new_listings)
+      form = @page.form_with(:name => 'itemSummaryForm')
+      new_listings.each do |l|
+        if listings(true).find(l.sku).price.nil? && l.price != nil
+          raise UnsupportedModification.new("Can't set price for #{l.asin} to $#{l.price}, the listing is not yet complete and this library doesn't yet support completing listings")
+        end
+
+        form["inv|#{l.sku}|#{l.asin}"]   = l.quantity
+        form["price|#{l.sku}|#{l.asin}"] = l.price 
+      end
+      r = form.submit
+      true
+    end
+
+    class UnsupportedModification < StandardError; end
 
     private
 
