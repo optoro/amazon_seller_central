@@ -3,6 +3,9 @@ require 'amazon_seller_central/mechanizer'
 require 'amazon_seller_central/page'
 require 'amazon_seller_central/feedback'
 require 'amazon_seller_central/feedback_page'
+require 'amazon_seller_central/listing'
+require 'amazon_seller_central/inventory'
+require 'amazon_seller_central/inventory_page'
 
 module AmazonSellerCentral
   def self.configuration

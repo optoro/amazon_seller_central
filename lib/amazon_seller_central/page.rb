@@ -12,11 +12,11 @@ module AmazonSellerCentral
     end
 
     def last_page?
-      true
+      !has_next?
     end
 
     def next_page
-      nil
+      raise NoNextPageAvailableError.new("Unimplemented, override Page#next_page")
     end
 
     class NoNextPageAvailableError < StandardError

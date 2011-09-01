@@ -23,9 +23,10 @@ module AmazonSellerCentral
       page = agent.get('https://sellercentral.amazon.com/')
       form = page.form_with(:name => 'signin')
 
-      form.email = login_email
+      form.email    = login_email
       form.password = login_password
-      @last_page = form.submit
+      @last_page    = form.submit
+      @last_page.body =~ /Welcome! You are signed in as/
     end
 
     def follow_link_with(options)

@@ -3,36 +3,16 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe "FeedbackPage" do
   before :all do
     #AmazonSellerCentral.mechanizer.reset!
-    @first_page_test_regex  = /Wow!  Amazing price, super fast shipping./
-    @second_page_test_regex = /This printer was not in good shape as the seller described./
-    @last_page_test_regex   = /easy to put together - ignore the first review/
+    @first_page_test_regex  = FEEDBACK_FIRST_PAGE_TEST_REGEX
+    @second_page_test_regex = FEEDBACK_SECOND_PAGE_TEST_REGEX
+    @last_page_test_regex   = FEEDBACK_LAST_PAGE_TEST_REGEX
 
     @first_page  = AmazonSellerCentral::FeedbackPage.load_first_page
     @second_page = @first_page.next_page
     @last_page   = @second_page.next_page
   end
 
-  it "knows if there is a next page of feedback" do
-    @first_page.has_next?.should be_true
-    @second_page.has_next?.should be_true
-    @last_page.has_next?.should be_false
-  end
-
-  it "returns the next page when there is one" do
-    @first_page.next_page.body.should =~ @second_page_test_regex
-  end
-
-  it "raises an exception when asked for a next page and there is none" do
-    lambda {
-      @last_page.next_page
-    }.should raise_exception(AmazonSellerCentral::FeedbackPage::NoNextPageAvailableError)
-  end
-
-  it "knows if it is the last page" do
-    @first_page.last_page?.should be_false
-    @second_page.last_page?.should be_false
-    @last_page.last_page?.should be_true
-  end
+  it_should_behave_like "all pages"
 
   it "transforms itself into a collection of Feedback objects" do
     feedback = @first_page.feedbacks
@@ -40,7 +20,7 @@ describe "FeedbackPage" do
     feedback.last.comments.should == "quick delivery.  product arrived in perfect condition.  good experience."
   end
 
-  describe "class methods" do
+  describe "ClassMethods" do
     it "loads the first page of feedback data" do
       AmazonSellerCentral.mechanizer.reset!
       page = AmazonSellerCentral::FeedbackPage.load_first_page

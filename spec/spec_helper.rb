@@ -15,4 +15,7 @@ end
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
+  config.before(:all) do
+    mock_seller_central_page_results!
+  end
 end

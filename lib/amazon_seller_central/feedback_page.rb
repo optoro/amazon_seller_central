@@ -2,17 +2,8 @@ module AmazonSellerCentral
   class FeedbackPage < Page
     attr_accessor :body
 
-    def initialize(options={})
-      @page = options.delete(:page)
-      @body = @page ? @page.body : ""
-    end
-
     def has_next?
       @has_next ||= @page.search('a').map(&:text).grep(/Next/).count > 0
-    end
-
-    def last_page?
-      !has_next?
     end
 
     def next_page
@@ -53,9 +44,6 @@ module AmazonSellerCentral
     end
 
     extend ClassMethods
-
-    class NoNextPageAvailableError < StandardError
-    end
 
     private
         def feedback_row_to_object(row)
