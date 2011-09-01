@@ -1,5 +1,5 @@
 module AmazonSellerCentral
-  class FeedbackPage
+  class FeedbackPage < Page
     attr_accessor :body
 
     def initialize(options={})
