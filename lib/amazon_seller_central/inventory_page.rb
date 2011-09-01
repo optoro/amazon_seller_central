@@ -22,5 +22,74 @@ module AmazonSellerCentral
                        )
                      end
     end
+
+    def listings
+      @page.parser.css('table.manageTable tr').select{|r| r['id'] =~ /^sku-/ }.map do |row|
+        listing_row_to_object(row)
+      end
+    end
+    alias :parse :listings
+
+    private
+
+      # 0 - hidden input of sku
+      # 1 - checkbox itemOffer
+      # 2 - actions
+      # 3 - sku
+      # 4 - asin
+      # 5 - product name
+      # 6 - date created
+      # 7 - qty
+      # 8 - condition
+      # 9 - your price
+      # 10 - low price
+      # 11 - status
+      def listing_row_to_object(row)
+        l = Listing.new
+        row.css('td').each_with_index do |td, i|
+
+          txt = td.text.strip # yes, slightly slower to do this here, but I type less.
+
+          case i
+          when 3
+            l.sku = txt
+          when 4
+            l.asin = txt
+          when 5
+            l.product_name = txt
+          when 6
+            l.created_at = Time.parse(txt)
+          when 7
+            l.quantity = td.css('input').first['value'].to_i
+          when 8
+            l.condition = txt
+          when 9
+            l.price = get_price(td)
+          when 10
+            l.low_price = get_low_price(td)
+          when 11
+            l.status = txt
+          end
+        end
+        l
+      end
+
+      def get_price(td)
+        if td.css('input').size == 0 # incomplete listing
+          nil
+        else
+          td.css('input').first['value'].to_f
+        end
+      end
+
+      def get_low_price(td)
+        if td.css('a').size == 0 # no listing complete
+          nil
+        elsif td.css('a div').size == 1
+          true
+        else
+          td.text.gsub(/[^\d.]/,'').to_f
+        end
+      end
   end
 end

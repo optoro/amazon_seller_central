@@ -19,6 +19,7 @@ describe "Listing" do
   end
 
   it "accepts your_price as an alias for price" do
+    puts "setting"
     @listing.price = 12
     @listing.your_price.should == 12
     @listing.your_price = 50
@@ -54,5 +55,15 @@ describe "Listing" do
     @listing.low_price.should == 96.21
     @listing.low_price_cents = true
     @listing.low_price.should == true
+  end
+
+  it "accepts nil for price" do
+    @listing.price = nil
+    @listing.price.should be_nil
+  end
+
+  it "accepts nil for low_price" do
+    @listing.low_price = nil
+    @listing.low_price.should be_nil
   end
 end

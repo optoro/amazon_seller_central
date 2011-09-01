@@ -15,16 +15,29 @@ describe "InventoryPage" do
 
   it "transforms itself into a set of Listing objects" do
     listings = @first_page.listings
+    listings.size.should == 250
+
     listings[0].sku.should             == "PR48698-2"
     listings[0].asin.should            == "B001AMUFMA"
     listings[0].product_name.should    == "Onkyo TX-8555 Stereo Receiver"
     listings[0].created_at.should      == Time.parse("2011-08-31 18:39:24")
-    listings[0].quantity.should        == 1
+    listings[0].quantity.should        == 0
     listings[0].condition.should       == "Used - Very Good"
-    listings[0].price_cents.should     == 22099
-    listings[0].low_price.should       == true
-    listings[0].low_price_cents.should == true
-    listings[0].status.should          == "Open"
+    listings[0].price_cents.should     == nil
+    listings[0].low_price.should       == nil
+    listings[0].low_price_cents.should == nil
+    listings[0].status.should          == "Incomplete"
+
+    listings[1].sku.should             == "PR48458-3"
+    listings[1].asin.should            == "B004O0TRDI"
+    listings[1].product_name.should    == "Onkyo HT-S3400 5.1 Channel Home Theater Receiver/Speaker Package"
+    listings[1].created_at.should      == Time.parse("2011-08-31 18:14:49")
+    listings[1].quantity.should        == 1
+    listings[1].condition.should       == "Used - Good"
+    listings[1].price_cents.should     == 22559
+    listings[1].low_price.should       == true
+    listings[1].low_price_cents.should == true
+    listings[1].status.should          == "Open"
 
     listings[10].sku.should             == "PR27880-11"
     listings[10].asin.should            == "B003962DXE"
