@@ -1,8 +1,6 @@
 require 'mechanize'
-require 'singleton'
 module AmazonSellerCentral
   class Mechanizer
-    include Singleton
     MASQUERADE_AGENTS = ['Mac Safari', 'Mac FireFox', 'Linux Firefox']
 
     attr_reader :agent

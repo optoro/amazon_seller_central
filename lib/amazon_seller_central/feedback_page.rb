@@ -9,8 +9,8 @@ module AmazonSellerCentral
     def next_page
       @next_page ||= begin
                        raise NoNextPageAvailableError unless has_next?
-                       page = AmazonSellerCentral.mechanizer.follow_link_with(:text => 'Next')
-                       FeedbackPage.new(:page => page)
+                       page = @agent.follow_link_with(:text => 'Next')
+                       FeedbackPage.new(:page => page, :agent => @agent)
                      end
     end
 
@@ -25,10 +25,11 @@ module AmazonSellerCentral
     module ClassMethods
 
       def load_first_page
-        AmazonSellerCentral.mechanizer.login_to_seller_central
-        feedback_home = AmazonSellerCentral.mechanizer.follow_link_with(:text => "Feedback")
-        feedback_page = AmazonSellerCentral.mechanizer.follow_link_with(:text => "View all your feedback")
-        FeedbackPage.new(:page => feedback_page)
+        mech = AmazonSellerCentral.mechanizer
+        mech.login_to_seller_central
+        feedback_home = mech.follow_link_with(:text => "Feedback")
+        feedback_page = mech.follow_link_with(:text => "View all your feedback")
+        FeedbackPage.new(:page => feedback_page, :agent => mech)
       end
 
       def load_all_pages

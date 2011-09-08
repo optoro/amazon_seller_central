@@ -2,9 +2,10 @@ module AmazonSellerCentral
   class Inventory
     module ClassMethods
       def load_first_page
-        AmazonSellerCentral.mechanizer.login_to_seller_central
-        manage_inventory = AmazonSellerCentral.mechanizer.follow_link_with(:text => "Manage Inventory")
-        InventoryPage.new( :page => manage_inventory, :page_no => 1, :uri_base => manage_inventory.uri.to_s )
+        mech = AmazonSellerCentral.mechanizer
+        mech.login_to_seller_central
+        manage_inventory = mech.follow_link_with(:text => "Manage Inventory")
+        InventoryPage.new( :page => manage_inventory, :page_no => 1, :uri_base => manage_inventory.uri.to_s, :agent => mech )
       end
 
       def load_all_pages

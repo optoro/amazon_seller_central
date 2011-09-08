@@ -3,8 +3,9 @@ module AmazonSellerCentral
     attr_accessor :body
 
     def initialize(options={})
-      @page = options.delete(:page)
-      @body = @page ? @page.body : ""
+      @page  = options.delete(:page)
+      @agent = options.delete(:agent)
+      @body  = @page ? @page.body : ""
     end
 
     def has_next?

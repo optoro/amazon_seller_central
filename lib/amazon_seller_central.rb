@@ -18,6 +18,6 @@ module AmazonSellerCentral
   end
 
   def self.mechanizer
-    AmazonSellerCentral::Mechanizer.instance
+    AmazonSellerCentral::Mechanizer.new
   end
 end

@@ -30,7 +30,7 @@ describe "Mechanizer" do
 
     mech = AmazonSellerCentral.mechanizer
     mech.login_to_seller_central
-    AmazonSellerCentral.mechanizer.reset!
+    mech.reset!
     lambda {
       mech.follow_link_with(:text => "Feedback")
     }.should raise_exception(AmazonSellerCentral::Mechanizer::AgentResetError)

@@ -87,7 +87,7 @@ describe "InventoryPage" do
 
     @first_page.apply_listings(listings).should be_true
 
-    (AmazonSellerCentral.mechanizer.last_page.parser.css('div#msg_saveSuccess')[0]['style'] !~ /display: none/).should be_true
+    (@first_page.instance_variable_get('@agent').last_page.parser.css('div#msg_saveSuccess')[0]['style'] !~ /display: none/).should be_true
 
     FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/gp/ezdpc-gui/inventory-status/status.html/ref=ag_invmgr_mmap_home', :response => mock_pages[:update_inventory_result_from_page_1])
     listing = AmazonSellerCentral::Inventory.load_first_page.listings[0]
