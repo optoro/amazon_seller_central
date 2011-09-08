@@ -1,7 +1,7 @@
 # amazon\_seller\_central
 
-This gem is intended to wrap Amazon's SellerCentral pages with a Ruby
-API. Currently this gem supports accessing buyer feedback, accessing
+This gem wraps Amazon's SellerCentral pages with a Ruby API.
+Currently this gem supports accessing buyer feedback, accessing
 current inventory listings, and simple updates to those listings.
 
 ## Setup
