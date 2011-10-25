@@ -90,7 +90,7 @@ module AmazonSellerCentral
           when 6
             l.created_at = Time.parse(txt)
           when 7
-            l.quantity = td.css('input').first['value'].to_i
+            l.quantity = (inputs = td.css('input')).any? ? inputs.first['value'].to_i : txt.to_i
           when 8
             l.condition = txt
           when 9
