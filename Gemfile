@@ -20,5 +20,5 @@ group :development do
   gem 'ffi'
   gem 'faker'
   gem 'fakeweb'
-  gem 'ruby-debug'
+  gem 'ruby-debug19'
 end

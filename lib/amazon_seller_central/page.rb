@@ -23,5 +23,15 @@ module AmazonSellerCentral
     class NoNextPageAvailableError < StandardError
     end
 
+    protected
+      AZN_DATE_FMT = "%m/%d/%Y"
+      def parse_amazon_time(string)
+        Time.strptime(string, "#{AZN_DATE_FMT} %H:%M:%S")
+      end
+
+      def parse_amazon_date(string)
+        Time.strptime(string, AZN_DATE_FMT)
+      end
+
   end
 end

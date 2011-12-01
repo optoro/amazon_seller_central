@@ -88,7 +88,7 @@ module AmazonSellerCentral
           when 5
             l.product_name = txt
           when 6
-            l.created_at = Time.parse(txt)
+            l.created_at = parse_amazon_time(txt)
           when 7
             l.quantity = (inputs = td.css('input')).any? ? inputs.first['value'].to_i : txt.to_i
           when 8

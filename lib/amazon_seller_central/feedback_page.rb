@@ -50,7 +50,7 @@ module AmazonSellerCentral
         def feedback_row_to_object(row)
           data = row.search('.//td').map(&:text)
           {
-            :date              => Time.parse(data[0]),
+            :date              => parse_amazon_date(data[0]),
             :rating            => data[1].to_i,
             :comments          => data[2].gsub(/\n\nRespond$/,''),
             :arrived_on_time   => yes_no_nil(data[3]),
