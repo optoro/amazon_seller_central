@@ -25,35 +25,25 @@ describe "InventoryPage" do
     listings = @first_page.listings
     listings.size.should == 250
 
-    listings[46].sku.should             == "PR53377-2"
-    listings[46].asin.should            == "B004ARVJSG"
-    listings[46].product_name.should    == "The Bathroom Trivia Digest"
-    listings[46].created_at.should      == Time.parse("2011-10-24 11:38:33")
-    listings[46].quantity.should        == 0
-    listings[46].condition.should       == "Used - Very Good"
-    listings[46].price_cents.should     == nil
-    listings[46].low_price.should       == nil
-    listings[46].low_price_cents.should == nil
-    listings[46].status.should          == "Incomplete"
+    listings[3].sku.should             == "PR60079-2"
+    listings[3].asin.should            == "B002746WPE"
+    listings[3].product_name.should    == "Dell Latitude D810, D820, D830 Series 15.4inch WXGA LCD Screen [Electronics]"
+    listings[3].created_at.should      == Time.parse("2011-12-01 10:18:35")
+    listings[3].quantity.should        == 0
+    listings[3].condition.should       == "Used - Very Good"
+    listings[3].price_cents.should     == nil
+    listings[3].low_price.should       == nil
+    listings[3].low_price_cents.should == nil
+    listings[3].status.should          == "Incomplete"
 
-    listings[3].sku.should             == "PR52534-3"
-    listings[3].asin.should            == "B002ONCCFW"
-    listings[3].product_name.should    == "Compaq CQ5210F Black Desktop PC (Windows 7 Home Premium)"
-    listings[3].created_at.should      == Time.parse("2011-10-24 16:38:28")
-    listings[3].quantity.should        == 1
-    listings[3].condition.should       == "Used - Good"
-    listings[3].price_cents.should     == 18749
-    listings[3].status.should          == "Active"
-
-    listings[10].sku.should             == "PR53292-2"
-    listings[10].asin.should            == "B003SX0JRK"
-    listings[10].product_name.should    == "Checkolite B1010-02 LED Flex Light, Green"
-    listings[10].created_at.should      == Time.parse("2011-10-24 15:36:17")
-    listings[10].quantity.should        == 5
-    listings[10].condition.should       == "Used - Very Good"
-    listings[10].price_cents.should     == 639
-    #listings[10].low_price_cents.should == 10250
-    listings[10].status.should          == "Active"
+    listings[6].sku.should             == "PR55562-11"
+    listings[6].asin.should            == "B000WMHHL6"
+    listings[6].product_name.should    == "Kodak K7600-C Li-Ion Universal Battery Charger [CD] [Camera]"
+    listings[6].created_at.should      == Time.parse("2011-12-01 10:09:47")
+    listings[6].quantity.should        == 1
+    listings[6].condition.should       == "New"
+    listings[6].price_cents.should     == 1899
+    listings[6].status.should          == "Active"
   end
 
   # it "loads listings appropriately for another sample page" do
@@ -75,7 +65,7 @@ describe "InventoryPage" do
 
   it "accepts a set of Listing objects to apply updates to the page" do
     listings = @first_page.listings
-    l = listings[3]
+    l = listings[6]
     # l.quantity = 0
     # l.price = 225.59
     l.quantity = 2
@@ -88,7 +78,7 @@ describe "InventoryPage" do
     (@first_page.instance_variable_get('@agent').last_page.parser.css('div#msg_saveSuccess')[0]['style'] !~ /display: none/).should be_true
 
     FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/gp/ezdpc-gui/inventory-status/status.html/ref=ag_invmgr_mmap_home', :response => mock_pages[:update_inventory_result_from_page_1])
-    listing = AmazonSellerCentral::Inventory.load_first_page.listings[3]
+    listing = AmazonSellerCentral::Inventory.load_first_page.listings[6]
     listing.sku.should      == l.sku
     listing.quantity.should == l.quantity
     listing.price.should    == l.price
@@ -105,7 +95,7 @@ describe "InventoryPage" do
 
   it "raises an unsupported modification error when trying to apply listings twice" do
     listings = @first_page.listings
-    l = listings[3]
+    l = listings[6]
     l.price = 24.26
     @first_page.apply_listings([l])
 

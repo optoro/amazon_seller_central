@@ -65,15 +65,15 @@ module AmazonSellerCentral
       # 0 - hidden input of sku
       # 1 - checkbox itemOffer
       # 2 - actions
-      # 3 - sku
-      # 4 - asin
-      # 5 - product name
-      # 6 - date created
-      # 7 - qty
-      # 8 - condition
-      # 9 - your price
-      # 10 - low price
-      # 11 - status
+      # 3 - status
+      # 4 - sku
+      # 5 - asin
+      # 6 - product name
+      # 7 - date created
+      # 8 - qty
+      # 9 - condition
+      # 10 - your price
+      # 11 - low price
       def listing_row_to_object(row)
         l = Listing.new
         row.css('td').each_with_index do |td, i|
@@ -81,23 +81,23 @@ module AmazonSellerCentral
           txt = td.text.strip # yes, slightly slower to do this here, but I type less.
 
           case i
-          when 3
-            l.sku = txt
           when 4
-            l.asin = txt
+            l.sku = txt
           when 5
-            l.product_name = txt
+            l.asin = txt
           when 6
-            l.created_at = parse_amazon_time(txt)
+            l.product_name = txt
           when 7
-            l.quantity = (inputs = td.css('input')).any? ? inputs.first['value'].to_i : txt.to_i
+            l.created_at = parse_amazon_time(txt)
           when 8
-            l.condition = txt
+            l.quantity = (inputs = td.css('input')).any? ? inputs.first['value'].to_i : txt.to_i
           when 9
-            l.price = get_price(td)
+            l.condition = txt
           when 10
-            l.low_price = get_low_price(td)
+            l.price = get_price(td)
           when 11
+            l.low_price = get_low_price(td)
+          when 3
             l.status = txt
           end
         end
