@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{amazon_seller_central}
-  s.version = "0.2.2"
+  s.name = "amazon_seller_central"
+  s.version = "0.2.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["optoro"]
-  s.date = %q{2011-10-25}
-  s.description = %q{This gem is intended to wrap Amazon's SellerCentral pages with a Ruby API. Currently this gem supports accessing buyer feedback only.}
-  s.email = %q{dev@optoro.com}
+  s.date = "2011-12-01"
+  s.description = "This gem is intended to wrap Amazon's SellerCentral pages with a Ruby API. Currently this gem supports accessing buyer feedback only."
+  s.email = "dev@optoro.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.md"
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     ".rspec",
+    ".rvmrc",
     "CHANGELOG.md",
     "Gemfile",
     "Gemfile.lock",
@@ -65,11 +66,11 @@ Gem::Specification.new do |s|
     "spec/support/sample_pages/update_inventory_result_from_page_1.html",
     "spec/support/sample_pages/update_inventory_result_from_page_2.html"
   ]
-  s.homepage = %q{http://github.com/optoro/amazon_seller_central}
+  s.homepage = "http://github.com/optoro/amazon_seller_central"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.5.0}
-  s.summary = %q{Ruby API to access Amazon's SellerCentral}
+  s.rubygems_version = "1.8.10"
+  s.summary = "Ruby API to access Amazon's SellerCentral"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
@@ -88,7 +89,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<ffi>, [">= 0"])
       s.add_development_dependency(%q<faker>, [">= 0"])
       s.add_development_dependency(%q<fakeweb>, [">= 0"])
-      s.add_development_dependency(%q<ruby-debug>, [">= 0"])
+      s.add_development_dependency(%q<ruby-debug19>, [">= 0"])
     else
       s.add_dependency(%q<mechanize>, [">= 1.0.0"])
       s.add_dependency(%q<rspec>, ["~> 2.3.0"])
@@ -103,7 +104,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<ffi>, [">= 0"])
       s.add_dependency(%q<faker>, [">= 0"])
       s.add_dependency(%q<fakeweb>, [">= 0"])
-      s.add_dependency(%q<ruby-debug>, [">= 0"])
+      s.add_dependency(%q<ruby-debug19>, [">= 0"])
     end
   else
     s.add_dependency(%q<mechanize>, [">= 1.0.0"])
@@ -119,7 +120,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<ffi>, [">= 0"])
     s.add_dependency(%q<faker>, [">= 0"])
     s.add_dependency(%q<fakeweb>, [">= 0"])
-    s.add_dependency(%q<ruby-debug>, [">= 0"])
+    s.add_dependency(%q<ruby-debug19>, [">= 0"])
   end
 end
 
