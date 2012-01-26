@@ -7,6 +7,8 @@ require 'amazon_seller_central/feedback_page'
 require 'amazon_seller_central/listing'
 require 'amazon_seller_central/inventory'
 require 'amazon_seller_central/inventory_page'
+require 'amazon_seller_central/order'
+require 'amazon_seller_central/orders_page'
 
 module AmazonSellerCentral
   def self.configuration

@@ -29,4 +29,10 @@ def mock_seller_central_page_results!
   FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/gp/ezdpc-gui/inventory-status/status.html/ref=ag_invmgr_mmap_home&searchPageOffset=3', :response => mock_pages[:listings_last_page])
   FakeWeb.register_uri(:post, 'https://sellercentral.amazon.com/myi/search/ProductSummary', :response => mock_pages[:update_inventory_result_from_page_1])
   FakeWeb.register_uri(:post, 'https://sellercentral.amazon.com/myi/search/ProductSummary;jsessionid=10F6EC9ECBC6E9C3B45EB5DEC1B13D46', :response => mock_pages[:update_inventory_result_from_page_1])
+  
+  #Orders  
+  FakeWeb.register_uri(:get, "https://sellercentral.amazon.com/gp/orders-v2/list/ref=ag_myo_dos4_home?"+
+                                "ie=UTF8&showCancelled=0&searchType=OrderStatus&ignoreSearchType=1&statusFilter=Pending&searchFulfillers=mfn&preSelectedRange=30"+
+                                "&searchDateOption=preSelected&sortBy=OrderStatusDescending&itemsPerPage=100", :response => mock_pages[:manage_orders])
+  
 end
