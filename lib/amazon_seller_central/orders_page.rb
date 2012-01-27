@@ -18,10 +18,12 @@ module AmazonSellerCentral
                      end
     end
 
-    def self.pending_orders
+    def self.pending_orders(login_email, login_password)
       uri_base = 'https://sellercentral.amazon.com/gp/orders-v2/list/ref=ag_myo_dos4_home?ie=UTF8&showCancelled=0&searchType=OrderStatus&ignoreSearchType=1&statusFilter=Pending&searchFulfillers=mfn&preSelectedRange=30&searchDateOption=preSelected&sortBy=OrderStatusDescending&itemsPerPage=100'
       
       mech = AmazonSellerCentral.mechanizer
+      AmazonSellerCentral.configuration.login_email(login_email)
+      AmazonSellerCentral.configuration.login_password(login_password)
       mech.login_to_seller_central
       page = mech.agent.get(uri_base)
       pending_orders = []
