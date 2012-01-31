@@ -25,8 +25,8 @@ module AmazonSellerCentral
       page = agent.get('https://sellercentral.amazon.com/')
       form = page.form_with(:name => 'signin')
 
-      form.email    = login_email
-      form.password = login_password
+      form['email']    = login_email
+      form['password'] = login_password
       form.submit
       last_page.body =~ /Welcome! You are signed in as/
     end
