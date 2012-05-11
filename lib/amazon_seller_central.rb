@@ -9,6 +9,8 @@ require 'amazon_seller_central/inventory'
 require 'amazon_seller_central/inventory_page'
 require 'amazon_seller_central/order'
 require 'amazon_seller_central/orders_page'
+require 'amazon_seller_central/payment'
+require 'amazon_seller_central/payments_page'
 
 module AmazonSellerCentral
   def self.configuration
