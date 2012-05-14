@@ -1,7 +1,9 @@
 module AmazonSellerCentral
   class PaymentsPage < Page
-    attr_accessor :body
-    
+    attr_accessor :page
+
+
+
     def has_next?
       @has_next ||= @page.search('a').map(&:text).grep(/Next/).any?
     end
@@ -9,7 +11,7 @@ module AmazonSellerCentral
     def next_page
       @next_page ||= begin
                        raise NoNextPageAvailableError unless has_next?
-                       page = @agent.follow_link_with(:text => 'Next')
+                       @page = @agent.follow_link_with(:text => 'Next')
                        PaymentsPage.new(:page => page, :agent => @agent)
                      end
     end
@@ -19,13 +21,14 @@ module AmazonSellerCentral
       mech = AmazonSellerCentral.mechanizer
       mech.login_to_seller_central
       mech.follow_link_with(:text => "Payments")
-      current_settlements_page = mech.follow_link_with(:text => "Past Settlements")
-      current_page = PaymentsPage.new(:page => current_settlements_page, :agent => mech)     
-      id_array << current_page.page.links_with(:text => "Download Flat File").map{|link| link.href.match(/_GET_FLAT_FILE_PAYMENT_SETTLEMENT_DATA__(\d+)\.txt/)[1]}
-      while(current_page.has_next?)
-        current_page = current_page.next_page
-        id_array << current_page.page.links_with(:text => "Download Flat File").map{|link| link.href.match(/_GET_FLAT_FILE_PAYMENT_SETTLEMENT_DATA__(\d+)\.txt/)[1]}
-      end    
+      payments_page = mech.follow_link_with(:text => "Past Settlements")
+      @page = PaymentsPage.new(:page => payments_page, :agent => mech)
+      id_array << @page.page.links_with(:text => "Download Flat File").map{|link| link.href.match(/_GET_FLAT_FILE_PAYMENT_SETTLEMENT_DATA__(\d+)\.txt/)[1]}
+      while(@page.has_next?)
+        @page = @page.next_page
+        id_array << @page.page.links_with(:text => "Download Flat File").map{|link| link.href.match(/_GET_FLAT_FILE_PAYMENT_SETTLEMENT_DATA__(\d+)\.txt/)[1]}
+      end
+      id_array.flatten
     end
   end
 end
