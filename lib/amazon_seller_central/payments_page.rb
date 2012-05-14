@@ -14,7 +14,7 @@ module AmazonSellerCentral
                      end
     end
 
-    def get_all_availble_report_ids
+    def self.available_report_ids
       id_array = []
       mech = AmazonSellerCentral.mechanizer
       mech.login_to_seller_central
