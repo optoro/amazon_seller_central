@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "amazon_seller_central"
-  s.version = "0.2.4"
+  s.version = "0.2.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["optoro"]
@@ -40,6 +40,8 @@ Gem::Specification.new do |s|
     "lib/amazon_seller_central/mechanizer.rb",
     "lib/amazon_seller_central/order.rb",
     "lib/amazon_seller_central/orders_page.rb",
+    "lib/amazon_seller_central/payment.rb",
+    "lib/amazon_seller_central/payments_page.rb",
     "lib/amazon_seller_central/page.rb",
     "spec/amazon_seller_central_spec.rb",
     "spec/lib/feedback_page_spec.rb",
