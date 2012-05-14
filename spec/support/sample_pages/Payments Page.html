@@ -1,0 +1,908 @@
+HTTP/1.1 200 OK
+Date: Mon, 04 Jul 2011 01:23:14 GMT
+Server: Server
+x-amz-id-1: 05PFY70QQCZD59SMABH2
+x-amz-id-2: yOubWrVSvkD8r7lvPj6BxYhcNzBItHp/7w9pFqI6OTHtXjDNiOZnHg==
+Vary: Accept-Encoding,User-Agent
+Connection: close
+Content-Type: text/html; charset=UTF-8
+Set-cookie: session-id-time=1310281200l; path=/; domain=.amazon.com; expires=Mon Jul 11 01:23:14 2011 GMT
+Set-cookie: session-id=000-0000000-0000000; path=/; domain=.amazon.com; expires=Mon Jul 11 01:23:14 2011 GMT
+Transfer-Encoding: chunked
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en_US"> 
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+        <title>Payments</title>
+
+      </head>
+      <body>
+
+
+<script type="text/javascript">
+
+
+
+    function merchChanged( merchantID, customerID, merchantName, marketplaceID ) 
+    {
+      // show the please wait message
+      showPleaseWait();
+
+      if ( merchantID != 0 ) {
+	  document.location = "https://sellercentral.amazon.com/gp/utilities/set-rainier-prefs.html?ie=UTF8&url=https%3A%2F%2Fsellercentral.amazon.com%2Fgp%2Fpayments-account%2Fsettlement-summary.html%2Fref%3Dag_payments_dmer_payments" + '&merchantID=' + merchantID;
+      } else {
+	  document.location = "https://sellercentral.amazon.com/gp/utilities/set-rainier-prefs.html?ie=UTF8&url=https%3A%2F%2Fsellercentral.amazon.com%2Fgp%2Fpayments-account%2Fsettlement-summary.html%2Fref%3Dag_payments_dmer_payments" + '&merchantCustomerID=' + customerID + '&marketplaceID=' + marketplaceID;
+      }
+    }
+
+
+function returnHome() {
+  document.location = "https://sellercentral.amazon.com/gp/homepage.html";
+}
+</script>
+
+
+<div id="logoandmore" class="clearable">
+  <div id="sc_logo_top"><a href="https://sellercentral.amazon.com/gp/homepage.html/ref=ag_home_logo_payments"><img src="https://images-na.ssl-images-amazon.com/images/G/01/rainier/nav/as_sc_logo_small.jpg" id="sc_logo_top_image" onload="if (typeof uet==='function'){uet('cf');}" border="0" /></a></div>
+  <div id="market_switch">
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+<script type="text/javascript">
+
+
+  function switchMarketplace( marketplaceID ) {
+	showPleaseWait();
+	document.location = "https://sellercentral.amazon.com/gp/utilities/set-rainier-prefs.html?ie=UTF8&url=https%3A%2F%2Fsellercentral.amazon.com%2Fgp%2Fpayments-account%2Fsettlement-summary.html%2Fref%3Dag_payments_dmar_payments%3Fie%3DUTF8%26_mpc%3D1" + "&marketplaceID=" + marketplaceID;
+  }
+
+  function marketplaceChanged(marketplaceID) {
+	if(!marketplaceID) {return;}
+
+	switchMarketplace(marketplaceID);
+  }
+
+  function marketplaceChangedIWS(marketplaceID) {
+	if(!marketplaceID){return;}
+	showPleaseWait();
+	document.location = "https://sellercentral.amazon.com/gp/utilities/set-rainier-prefs.html?ie=UTF8&url=https%3A%2F%2Fsellercentral.amazon.com%2Fgp%2Fhomepage.html%2Fref%3Dag_home_dmar_payments" + "&marketplaceID=" + marketplaceID;
+  }
+</script>
+
+
+
+  <div id="merchant-website">
+
+
+
+
+	<span class="merch-site-span">www.amazon.com</span>
+  </div>
+  
+  <div class="image-container"><img src="https://images-na.ssl-images-amazon.com/images/G/01/rainier/nav/USAmazon._V171112299_.png" /></div>
+</div>
+  <div id="sc_quicklinks_top">
+	<a class="sc_quicklink navInactiveLink" href="https://sellercentral.amazon.com/gp/homepage.html/ref=ag_home_head_payments">HOME</a> |
+	<span id='newstuff'><a id="newStuffID" class="sc_quicklink navInactiveLink" href="https://sellercentral.amazon.com/gp/newstuff/newstuff.html/ref=ag_newstuff_head_payments">NEW STUFF</a></span> |
+	
+
+
+
+
+
+
+
+
+
+<span id='messagesID'><a class="sc_quicklink navInactiveLink" href="https://sellercentral.amazon.com/gp/communication-manager/inbox.html/ref=ag_cmin_head_payments">MESSAGES</a></span> |
+
+
+	<span id='helpMenuID'><a id="helpMenuID" class="sc_quicklink navInactiveLink" href="https://sellercentral.amazon.com/gp/help/help.html/ref=ag_help_head_payments?ie=UTF8&itemID=200700310&language=en_US">HELP</a></span> |
+	<a class="sc_quicklink" href="https://sellercentral.amazon.com/gp/sign-in/logout.html/ref=ag_logout_head_payments" style="color:#000;">LOGOUT</a>
+  </div>
+</div>
+
+<div id="topNavContainer"><div id="globalSearchForm">
+
+ 
+
+
+
+
+
+
+
+
+<form class="global-search-form" action="https://sellercentral.amazon.com/gp/search/search-results.html/ref=ag_helpsearch_bnav_payments" method="GET">
+    <input id="search-field" class="global-search-text" name="keywords" type="text" size="20" value="Search" onclick="clickclear(this,'Search')" onblur="clickrestore(this,'Search')" style="vertical-align:middle;" /> 
+    <input type="image" src="https://images-na.ssl-images-amazon.com/images/G/01/abis-ui/buttons/go._V187564664_.gif"  width="21" alt="Go" style="vertical-align:middle" height="21" border="0" />
+</form>
+
+
+<script type="text/javascript">
+function clickclear(thisfield, defaulttext) {
+  thisfield.style.color = "#000000";
+  if (thisfield.value == defaulttext) {
+    thisfield.value = "";
+  }
+}
+
+function clickrestore(thisfield, defaulttext) {
+  if (thisfield.value == "") {
+    thisfield.style.color = "#808080";
+    thisfield.value = defaulttext;
+  }
+}
+</script>
+
+
+</div><ul id="topNav">
+    <li class="level1 inactive">
+		<a href="https://sellercentral.amazon.com/gp/ezdpc-gui/inventory-status/status.html/ref=ag_invmgr_tnav_payments">INVENTORY
+    </a>
+        <ul class="subNav">
+            	<li><a href="https://sellercentral.amazon.com/gp/ezdpc-gui/inventory-status/status.html/ref=ag_invmgr_dnav_payments_">Manage Inventory
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/ssof/manage-afn-inventory.html/ref=ag_fbamnginv_dnav_payments_">Manage FBA Inventory
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/ezdpc-gui/start.html/ref=ag_addlisting_dnav_payments_">Add a Product
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/item-manager/ezdpc/uploadInventory.html/ref=ag_invfile_dnav_payments_">Upload Products &amp; Inventory
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/item-manager/ezdpc/openPickup.html/ref=ag_invreport_dnav_payments_">Download Inventory File
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/mn/promotions/promotionHome/ref=ag_promomgr_dnav_payments_">Manage Promotions
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/ssof/shipping-queue.html/ref=ag_fbashipq_dnav_payments_">Manage FBA Shipments
+              </a></li>
+        </ul>
+    </li>
+
+    <li class="level1 inactive">
+		<a href="https://sellercentral.amazon.com/gp/orders-v2/list/ref=ag_myo_tnav_payments?ie=UTF8&useSavedSearch=default">ORDERS
+    </a>
+        <ul class="subNav">
+            	<li><a href="https://sellercentral.amazon.com/gp/orders-v2/list/ref=ag_myo_dnav_payments_?ie=UTF8&useSavedSearch=default">Manage Orders
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/transactions/orderPickup.html/ref=ag_orderrpt_dnav_payments_">Order Reports
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/transactions/uploadShippingConfirmation.html/ref=ag_ordrelfile_dnav_payments_">Upload Order Related Files
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/returns/list/ref=ag_myr_dnav_payments_?ie=UTF8&useSavedSearch=default">Manage Returns
+              </a></li>
+        </ul>
+    </li>
+
+    <li class="level1 active">
+		<a href="https://sellercentral.amazon.com/gp/payments-account/settlement-summary.html/ref=ag_payments_tnav_payments">REPORTS
+    </a>
+        <ul class="subNav">
+            	<li><a href="https://sellercentral.amazon.com/gp/payments-account/settlement-summary.html/ref=ag_payments_dnav_payments_">Payments
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/sellercoach/dashboard/ref=ag_coach_dnav_payments_">Amazon Selling Coach
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/site-metrics/home.html/ref=ag_sitemetric_dnav_payments_">Business Reports
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/ssof/reports.html/ref=ag_fbareports_dnav_payments_">Fulfillment
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/tax/tax-library.html/ref=ag_taxlib_dnav_payments_">Tax Document Library
+              </a></li>
+        </ul>
+    </li>
+
+    <li class="level1 inactive">
+		<a href="https://sellercentral.amazon.com/gp/customer-experience/summary.html/ref=ag_custmetric_tnav_payments">PERFORMANCE
+    </a>
+        <ul class="subNav">
+            	<li><a href="https://sellercentral.amazon.com/gp/customer-experience/summary.html/ref=ag_custmetric_dnav_payments_">Customer Metrics
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/feedback-manager/home.html/ref=ag_feedback_dnav_payments_">Feedback
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/guarantee-claims/home.html/ref=ag_azclaims_dnav_payments_">A-to-z Guarantee Claims
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/chargebacks/home.html/ref=ag_chrgbck_dnav_payments_">Chargeback Claims
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/customer-experience/perf-notifications.html/ref=ag_cxperform_dnav_payments_">Performance Notifications
+              </a></li>
+        </ul>
+    </li>
+
+    <li class="level1 inactive">
+		<a href="https://sellercentral.amazon.com/gp/seller/configuration/account-info-page.html/ref=ag_acctinfo_tnav_payments">SETTINGS
+    </a>
+        <ul class="subNav">
+            	<li><a href="https://sellercentral.amazon.com/gp/seller/configuration/account-info-page.html/ref=ag_acctinfo_dnav_payments_">Account Info
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/seller/configuration/notificationPreferences.html/ref=ag_notifpref_dnav_payments_">Notification Preferences
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/seller/configuration/login-settings.html/ref=ag_loginsett_dnav_payments_">Login Settings
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/returns/settings/ref=ag_myr_dnav_payments_">Manage Returns Settings
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/gift-services/dispatch.html/ref=ag_giftops_dnav_payments_">Gift Options
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/shipping/dispatch.html/ref=ag_shipset_dnav_payments_">Shipping Settings
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/tax-manager/dashboard.html/ref=ag_taxmgr_dnav_payments_">Tax Settings
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/account-manager/home.html/ref=ag_userperms_dnav_payments_">User Permissions
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/help-content/home.html/ref=ag_infopol_dnav_payments_">Your Info & Policies
+              </a></li>
+            	<li><a href="https://sellercentral.amazon.com/gp/ssof/configuration/index.html/ref=ag_fbasettings_dnav_payments_">Fulfillment by Amazon
+              </a></li>
+        </ul>
+    </li>
+</ul></div>
+<div id="subnav_container" class="clear clearable"></div>
+
+
+
+
+
+      
+
+
+<script type="text/javascript">
+var gNavbarHeight = 97;
+</script>
+
+
+
+<script type='text/javascript'>if (typeof uet == 'function') { uet('ne'); }</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+  
+
+
+
+
+  
+
+
+  
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+<div id='MEWSDivID'>
+   <br />
+</div>
+
+
+
+<table class="content-area"><tbody><tr><td>
+
+
+
+
+<div style="float:left; text-align: left;">
+    <span class = "header-orange" style = "font-size: 20px; font-family: Arial, Helvetica, sans-serif">
+        Payments
+    </span>
+    <span class = "tiny">
+        <a href="javascript:openModalDialog('https://sellercentral.amazon.com/gp/help/help-popup.html?ie=UTF8&itemID=60511#', 550, 550, 'scrollbars=yes', null, 'yes')" class="small">Learn more</a>
+    </span>
+</div>
+<div style="float:right; text-align: right;">
+
+    
+<div id="ad-top">
+</div>
+ 
+<script type="text/javascript">
+amznJQ.available('jQuery', function() {
+    jQuery(window).load(function() {
+	var baseUrl   = "https://aan.amazon.com/2009-09-09/ad/",
+	    urlSuffix = "amazonexternal.us/jsc?pt=static&slot=lib&pt2=aanjs",
+	    client    = "amazonexternal.us",
+	    aanSlot   = "seller-app-payments";
+
+	var getUrlParam = function(name){
+	      var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	      return results!==null?results[1]:null;
+	};
+
+	if(getUrlParam('slotoverride') !== null) {
+	    aanSlot = getUrlParam('slotoverride');
+	}
+
+	var getScript = function(scriptUrl, callback){
+	    jQuery.ajax({
+		url: scriptUrl,
+		data: null,
+		dataType: 'script',
+		cache: true,
+		success: callback
+	    });
+	}; 
+	getScript(baseUrl + urlSuffix, function(){
+	    d16g.requestAanAd({
+		  elemId: "ad-top",
+		baseUrl: baseUrl,
+		afterOnload: true,
+		  client: client,
+		  pt: "sellercentral",
+		  slot: aanSlot,
+		  pt2: "sellercentral"
+	    });
+	});
+    });
+});
+ 
+</script>
+</div>
+<div style="clear:both"></div>
+
+
+
+ 
+
+
+      
+
+
+
+
+
+<div class = "bucketcontainer" id = "paymentsnav">
+    <table class = "data-entry" cellspacing = "1"><tbody>
+        <tr>
+            <td class = "field" align = "center" valign = "middle">
+                    <strong><a href="#">Summary</a></strong>
+                    &nbsp;|&nbsp;
+                    <a href="https://sellercentral.amazon.com/gp/payments-account/view-transactions.html/ref=ag_pymtvtrans_cont_payments">Transactions</a>
+                    &nbsp;|&nbsp;
+                    <a href="https://sellercentral.amazon.com/gp/payments-account/past-settlements.html/ref=ag_xx_cont_payments">Past Settlements</a>
+
+
+
+            </td>
+        </tr>
+    </tbody></table>
+</div>
+  <br/>
+<table class="data-display" cellspacing="1" id="slrpmt-s-summary-data-display">
+<tbody>
+	
+	<tr><td colspan = "2"><hr color = "#dddddd" size = "1"></td></tr>
+
+
+
+<tr id="settlement_summary_tt_"> <td width = "50%" valign = "top"><strong>Orders&nbsp;<span id=SellerPayments_UI_ContextualHelp_Orders ><img src="https://images-na.ssl-images-amazon.com/images/G/01/rainier/icons/help-explain._V183360421_.gif" width="12" align="absmiddle" alt="" height="12" border="0" /></span><div style="display:none" id=SellerPayments_UI_ContextualHelp_Orders_Div_Id ><strong>Orders</strong><br /><br /><div>This section displays order totals since your last statement period.</div></div></strong></td><td valign="top"> <table width="100%">
+  <tr>
+    <td>Product charges&nbsp;<span id=SellerPayments_UI_ContextualHelp_Orders_ProductCharges ><img src="https://images-na.ssl-images-amazon.com/images/G/01/rainier/icons/help-explain._V183360421_.gif" width="12" align="absmiddle" alt="" height="12" border="0" /></span><div style="display:none" id=SellerPayments_UI_ContextualHelp_Orders_ProductCharges_Div_Id ><strong>Product charges</strong><br /><br /><div>This includes product sales only, and does not include shipping, gift wrap, or other amounts.</div></div></td>
+    <td align="right">$85,932.05</td>
+  </tr>
+  <tr>
+    <td>Promo rebates&nbsp;<span id=SellerPayments_UI_ContextualHelp_Orders_PromoRebates ><img src="https://images-na.ssl-images-amazon.com/images/G/01/rainier/icons/help-explain._V183360421_.gif" width="12" align="absmiddle" alt="" height="12" border="0" /></span><div style="display:none" id=SellerPayments_UI_ContextualHelp_Orders_PromoRebates_Div_Id ><strong>Promo rebates</strong><br /><br /><div>This is the amount of rebate charges for any rebate promotions you have created.</div></div></td>
+    <td align="right">$0.00</td>
+  </tr>
+  <tr>
+    <td>Amazon fees&nbsp;<span id=SellerPayments_UI_ContextualHelp_Orders_AmazonFees ><img src="https://images-na.ssl-images-amazon.com/images/G/01/rainier/icons/help-explain._V183360421_.gif" width="12" align="absmiddle" alt="" height="12" border="0" /></span><div style="display:none" id=SellerPayments_UI_ContextualHelp_Orders_AmazonFees_Div_Id ><strong>Amazon fees</strong><br /><br /><div>This includes order fees for products and shipping, and fees for services such as Fulfillment by Amazon.</div></div></td>
+    <td align="right"><span class="negative">-$8,585.12</span></td>
+  </tr>
+  <tr>
+    <td>Other&nbsp;<span id=SellerPayments_UI_ContextualHelp_Orders_Other ><img src="https://images-na.ssl-images-amazon.com/images/G/01/rainier/icons/help-explain._V183360421_.gif" width="12" align="absmiddle" alt="" height="12" border="0" /></span><div style="display:none" id=SellerPayments_UI_ContextualHelp_Orders_Other_Div_Id ><strong>Other</strong><br /><br /><div>This includes sales amounts not related specifically to products, such as for shipping and gift wrap.</div></div></td>
+    <td align="right">$10,511.05</td>
+  </tr>
+  <tr>
+    <td><strong>Total</strong></td>
+    <td align="right"><strong>$87,857.98</strong></td>
+  </tr></table>
+</td></tr>
+<tr><td colspan = "2"><hr color = "#dddddd" size = "1"></td></tr> <tr id="settlement_summary_tt_"> <td width = "50%" valign = "top"><strong>Refunds&nbsp;<span id=SellerPayments_UI_ContextualHelp_Refunds ><img src="https://images-na.ssl-images-amazon.com/images/G/01/rainier/icons/help-explain._V183360421_.gif" width="12" align="absmiddle" alt="" height="12" border="0" /></span><div style="display:none" id=SellerPayments_UI_ContextualHelp_Refunds_Div_Id ><strong>Refunds</strong><br /><br /><div>This section displays refund totals since your last statement period.</div></div></strong></td><td valign="top"> <table width="100%">
+  <tr>
+    <td>Product charges&nbsp;<span id=SellerPayments_UI_ContextualHelp_Refunds_ProductCharges ><img src="https://images-na.ssl-images-amazon.com/images/G/01/rainier/icons/help-explain._V183360421_.gif" width="12" align="absmiddle" alt="" height="12" border="0" /></span><div style="display:none" id=SellerPayments_UI_ContextualHelp_Refunds_ProductCharges_Div_Id ><strong>Product charges</strong><br /><br /><div>This includes refunds of product sales  only, and does not include shipping, gift wrap, or other amounts.</div></div></td>
+    <td align="right"><span class="negative">-$6,649.43</span></td>
+  </tr>
+  <tr>
+    <td>Amazon fees&nbsp;<span id=SellerPayments_UI_ContextualHelp_Refunds_AmazonFees ><img src="https://images-na.ssl-images-amazon.com/images/G/01/rainier/icons/help-explain._V183360421_.gif" width="12" align="absmiddle" alt="" height="12" border="0" /></span><div style="display:none" id=SellerPayments_UI_ContextualHelp_Refunds_AmazonFees_Div_Id ><strong>Amazon fees</strong><br /><br /><div>This includes Amazon fees that are refunded to you.</div></div></td>
+    <td align="right">$543.75</td>
+  </tr>
+  <tr>
+    <td>Other&nbsp;<span id=SellerPayments_UI_ContextualHelp_Refunds_Other ><img src="https://images-na.ssl-images-amazon.com/images/G/01/rainier/icons/help-explain._V183360421_.gif" width="12" align="absmiddle" alt="" height="12" border="0" /></span><div style="display:none" id=SellerPayments_UI_ContextualHelp_Refunds_Other_Div_Id ><strong>Other</strong><br /><br /><div>This includes amounts that are not related to product refunds, such as shipping, gift wrap, and concessions.</div></div></td>
+    <td align="right"><span class="negative">-$1,023.72</span></td>
+  </tr>
+  <tr>
+    <td><strong>Total</strong></td>
+    <td align="right"><strong><span class="negative">-$7,129.40</span></strong></td>
+  </tr></table>
+</td></tr>
+<tr><td colspan = "2"><hr color = "#dddddd" size = "1"></td></tr> <tr id="settlement_summary_tt_"> <td width = "50%" valign = "top"><strong>Other Transactions&nbsp;<span id=SellerPayments_UI_ContextualHelp_OtherTransactions ><img src="https://images-na.ssl-images-amazon.com/images/G/01/rainier/icons/help-explain._V183360421_.gif" width="12" align="absmiddle" alt="" height="12" border="0" /></span><div style="display:none" id=SellerPayments_UI_ContextualHelp_OtherTransactions_Div_Id ><strong>Other Transactions</strong><br /><br /><div>This section displays the total charges and credits that are not related to a specific order, such as subscription fees or adjustments charged or credited by Amazon.</div></div><div class="inputfootnote">(may include amounts from failed disbursements. <a href="javascript:openModalDialog('https://sellercentral.amazon.com/gp/help/200384410/ref=ag_200384410_cont_payments', 550, 550, 'scrollbars=yes', null, 'yes')">Learn More.</a>)</div></strong></td><td valign="top"> <table width="100%">
+  <tr>
+    <td>Other&nbsp;</td>
+    <td align="right">$2,886.48</td>
+  </tr>
+  <tr>
+    <td><strong>Total</strong></td>
+    <td align="right"><strong>$2,886.48</strong></td>
+  </tr></table>
+</td></tr>
+
+	
+
+
+
+
+
+<tr><td colspan = "2"><hr color = "#dddddd" size = "1"></td></tr> <tr id="account_summary_balance_display"> <td width = "50%" valign = "top"><strong>Balance&nbsp;<span id=SellerPayments_UI_ContextualHelp_Balance ><img src="https://images-na.ssl-images-amazon.com/images/G/01/rainier/icons/help-explain._V183360421_.gif" width="12" align="absmiddle" alt="" height="12" border="0" /></span><div style="display:none" id=SellerPayments_UI_ContextualHelp_Balance_Div_Id ><strong>Balance</strong><br /><br /><div>This is the balance in your seller account, and is calculated by combining the orders, refunds, shipping services and other transactions amounts displayed on the Account Summary page.</div></div></strong></td><td valign="top"> <table width="100%">
+  <tr>
+    <td>&nbsp;</td>
+    <td align="right"><strong>$83,615.06</strong></td>
+  </tr>
+</table>
+</td></tr>
+
+	
+
+
+
+<tr id="account_summary_reserves_learn"> <td width = "50%" valign = "top"><strong>Reserve amount&nbsp;<span id=SellerPayments_UI_ContextualHelp_ReserveAmount ><img src="https://images-na.ssl-images-amazon.com/images/G/01/rainier/icons/help-explain._V183360421_.gif" width="12" align="absmiddle" alt="" height="12" border="0" /></span><div style="display:none" id=SellerPayments_UI_ContextualHelp_ReserveAmount_Div_Id ><strong>Reserve amount</strong><br /><br /><div>This is an amount Amazon keeps in reserve in your seller account. Click on "View reason" for more details.</div></div></strong><span class="learn_more tiny">&nbsp;<a href="https://sellercentral.amazon.com/gp/help/help-folder.html?ie=UTF8&amp;itemID=200136810" target="_blank" onclick="openModalDialog('/gp/help/help-popup.html?itemID=200136810', 550, 550, 'scrollbars=yes', null, 'yes');return false;" class="tiny">What's this?</a></span></td><td valign="top"> <table width="100%">
+  <tr>
+    <td>&nbsp;</td>
+    <td align="right"><span class="learn_more tiny">&nbsp;<a href="https://sellercentral.amazon.com/gp/help/help-folder.html?ie=UTF8&amp;itemID=200726740" target="_blank" onclick="openModalDialog('/gp/help/help-popup.html?itemID=200726740', 550, 550, 'scrollbars=yes', null, 'yes');return false;" class="tiny">View reason</a></span> <span class="negative">-$3,228.49</span></td>
+  </tr>
+</table>
+</td></tr>
+
+	
+
+
+
+
+	
+
+<tr id="account_summary_available_balance"> <td width = "50%" valign = "top"><strong>Current settlement amount&nbsp;<span id=SellerPayments_UI_ContextualHelp_CurrentSettlement ><img src="https://images-na.ssl-images-amazon.com/images/G/01/rainier/icons/help-explain._V183360421_.gif" width="12" align="absmiddle" alt="" height="12" border="0" /></span><div style="display:none" id=SellerPayments_UI_ContextualHelp_CurrentSettlement_Div_Id ><strong>Current settlement amount</strong><br /><br /><div>Funds in your seller account, less any reserve amount</div></div></strong><span class="learn_more tiny">&nbsp;<a href="https://sellercentral.amazon.com/gp/help/help-folder.html?ie=UTF8&amp;itemID=18841" target="_blank" onclick="openModalDialog('/gp/help/help-popup.html?itemID=18841', 550, 550, 'scrollbars=yes', null, 'yes');return false;" class="tiny">How do I get paid?</a></span></td><td valign="top"> <table width="100%">
+  <tr>
+    <td>&nbsp;</td>
+    <td align="right"><strong>$80,386.57</strong></td>
+  </tr>
+</table>
+</td></tr>
+
+	</tbody></table>
+	</td>
+   
+	<td height = "100%" class = "data-display-field" valign = "top"  width = "50%" id="data-display-column-unidentified"> 
+	<table width = "100%" height = "100%" cellspacing = "0" cellpadding = "5" border = "0">
+	<tbody>
+	
+
+
+
+
+
+
+
+<tr id="settlement_summary_balance"> <td width = "50%" valign = "top"><strong>Current settlement amount&nbsp;<span id=SellerPayments_UI_ContextualHelp_CurrentAvailableBalance ><img src="https://images-na.ssl-images-amazon.com/images/G/01/rainier/icons/help-explain._V183360421_.gif" width="12" align="absmiddle" alt="" height="12" border="0" /></span><div style="display:none" id=SellerPayments_UI_ContextualHelp_CurrentAvailableBalance_Div_Id ><strong>Current settlement amount</strong><br /><br /><div>Funds in your seller account, less any reserve amount</div></div></strong></td><td valign="top"> <table width="100%">
+  <tr>
+    <td>&nbsp;</td>
+    <td align="right"><strong>$80,386.57</strong></td>
+  </tr>
+</table>
+</td></tr> 
+
+  	
+
+
+<tr><td colspan = "2"><hr color = "#dddddd" size = "1"></td></tr> <tr id="account_summary_next_settlement_date"> <td width = "50%" valign = "top"><strong>Settlement date&nbsp;<span id=SellerPayments_UI_ContextualHelp_SettlementDate ><img src="https://images-na.ssl-images-amazon.com/images/G/01/rainier/icons/help-explain._V183360421_.gif" width="12" align="absmiddle" alt="" height="12" border="0" /></span><div style="display:none" id=SellerPayments_UI_ContextualHelp_SettlementDate_Div_Id ><strong>Settlement date</strong><br /><br /><div>This is the day when we will automatically send your positive available balance to the bank account on file.  If the balance is negative,  we will charge the credit card on file.</div></div></strong></td><td valign="top"> <table width="100%">
+  <tr>
+    <td>&nbsp;</td>
+    <td align="right"><strong>May 21, 2012</strong></td>
+  </tr>
+</table>
+</td></tr> 
+  	
+
+<tr><td colspan = "2"><hr color = "#dddddd" size = "1"></td></tr> <tr id="account_summary_find_transactions_form"> <td width = "50%" valign = "top"><strong>Find a transaction&nbsp;<span id=SellerPayments_UI_ContextualHelp_FindATransaction ><img src="https://images-na.ssl-images-amazon.com/images/G/01/rainier/icons/help-explain._V183360421_.gif" width="12" align="absmiddle" alt="" height="12" border="0" /></span><div style="display:none" id=SellerPayments_UI_ContextualHelp_FindATransaction_Div_Id ><strong>Find a transaction</strong><br /><br /><div>Enter an order number to view the credits, fees, and adjustments for a specific order.</div></div></strong></td><td valign="top"> 
+
+
+
+<form action="https://sellercentral.amazon.com/gp/payments-account/view-transactions.html" method="get" name="searchTransactions" id="searchTransactions">
+    <label for="orderNumber">Enter order number</label><br />
+    <div>
+        <input type="hidden" name="view" id="view" value="search" />
+        <input type="hidden" name="range" id="range" value="all" />
+        <input type="text" size="30" name="orderId" id="orderId" />
+        <input type="image" src="https://images-na.ssl-images-amazon.com/images/G/01/buttons/go-t._V192189541_.gif"  width="23" alt="Go!" align="absmiddle" height="23" border="0" />
+    </div>
+</form>
+
+</td></tr> 
+ 
+	
+
+
+<tr id="disbursement_status_box"> <td valign="middle" height="100%" colspan="2"></td></tr> 
+
+	</tbody></table>
+	</td>  
+    
+
+	</tr>
+    <tr class = "list-row-blueodd">
+    <td class = "data-display-field" valign = "center" align = "right" colspan = "2">
+    
+
+
+<a href="https://sellercentral.amazon.com/gp/payments-account/view-transactions.html?ie=UTF8&amp;groupId=20121282gf_0oSJQA-g9_pTv6Hurw&amp;subview=groups&amp;view=filter">View Transactions</a>
+
+ 
+        </td>
+    	</tr>
+    
+</tbody>
+</table>
+
+
+
+
+ 
+
+
+ 
+
+
+
+
+
+
+<img src="https://images-na.ssl-images-amazon.com/images/G/01/x-locale/common/transparent-pixel._V42752373_.gif" style="position: absolute" width="1" alt="" onload="if (typeof uet == 'function') { uet('cf'); }" height="1" border="0" />
+
+
+
+
+</td></tr></tbody></table>
+
+ 
+
+ 	<div id="realtooltip" style="border: 1px solid rgb(255, 255, 255); width: 300px; position: absolute; background-color: rgb(255, 255, 255); visibility: hidden;"><table style="padding-top: 1px; border: 1px solid rgb(24, 52, 144);" align="center" border="0" cellpadding="0" cellspacing="0" width="95%"><tbody><tr style="margin-bottom: 8em;" bgcolor="#eeeeee" height="8px" valign="middle"><td style="padding-left: 2px;" align="left"><strong></strong></td><td style="padding-right: 2px; padding-top: 4px;" align="right"><button name="Close" id="CloseID" class="awesomeButton buttonSmall secondarySmallButton type="button" onclick='javascript:hideExchangeRate();'><span class="button_label"></span></button></td></tr><tr><td colspan="2"><div style="margin-top: 4px; padding: 2px 4px; line-height: 1.7em;"> 1  =  <br> <span class="tiny"></span><div class="inputfootnote"></div></div></td></tr></tbody></table></div>
+
+
+<script type="text/javascript">
+     amznJQ.available('rainier-core', function() {
+        var browserType;
+        if (document.layers) {browserType = "nn4"}
+        if (document.all) {browserType = "ie"}
+        if (window.navigator.userAgent.toLowerCase().match("gecko")) {browserType= "gecko"}
+
+        var winExchangeRate = new PopupWindow('realtooltip');
+        winExchangeRate.autoHide();
+        winExchangeRate.offsetX = 0;
+        winExchangeRate.offsetY = 10;
+        
+        window.hideExchangeRate = function() {
+            winExchangeRate.hidePopup();
+        };
+        
+        window.showExchangeRate = function() {
+            winExchangeRate.showPopup('ExchangeRateLink');
+        };
+    });
+</script>
+
+
+
+  
+<script type="text/javascript">
+<!--
+    
+    // make and process the AJAX request for the MEWS message
+    var mewsUrl = '/gp/payments-account/disbursement-mews.html?PowerBar=0&nocache=0.13651240978901';
+    var mewsHttp = createRequestObject();    
+    mewsHttp.open('GET', mewsUrl, true);
+    mewsHttp.onreadystatechange = function(){handleMewsResponse();};
+    mewsHttp.send(null);   
+    
+    function createRequestObject() {
+    	var ro;
+    	var browser = navigator.appName;
+    	if(browser == "Microsoft Internet Explorer"){
+    		ro = new ActiveXObject("Microsoft.XMLHTTP");
+    	}
+    	else {
+    		ro = new XMLHttpRequest();
+    	}
+    	return ro;
+    }
+
+    function handleMewsResponse() {
+        if(mewsHttp.readyState == 4 && mewsHttp.status == 200) {
+        	
+            if(mewsHttp.responseText.indexOf("SERVICE_UNAVAILABLE") == -1) {
+                document.getElementById("MEWSDivID").innerHTML = mewsHttp.responseText;
+                
+            }
+    	}
+    }
+  
+-->
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br style="clear:both">
+
+<form id="feedbackForm" action="/gp/contact-amazon.html" method="post"><input type="hidden" id="debugInformation" value=""></form>
+
+<script language="javascript" type="text/javascript">
+function loadContactUs() {
+  window.location.href = 'https://sellercentral.amazon.com/gp/contact-us/contact-amazon.html/ref=ag_contactus_foot_payments';
+}
+</script>
+
+<style type="text/css">
+#sc_footer_container{border:0;border-top: 1px solid #ddd;margin:7em 2.5% 0;padding:0;}
+#sc_footer{background:#fff;border:0;line-height:21px;margin:0;padding: 10px 0;}
+#sc_footer_lang{float:left;padding-left:4px}
+#sc_footer_links{padding-left:4px;text-align:right;float:right;}
+#sc_footer_merchant{margin-right:25px;}
+.scf_link,.scf_link:visited{color:#004b91; text-decoration:none;}
+.scf_link:hover,.scf_link:active{color:#e47911;text-decoration:underline;}
+</style>
+
+<div id="sc_footer_container">
+<div id="sc_footer" class="footer smaller clearable">
+
+<div id="sc_footer_lang">
+<a class="scf_link" href="javascript:openModalDialog('https://sellercentral.amazon.com/gp/satisfaction/survey-form.html/ref=ag_ratepage_foot_payments?ie=UTF8&fromUrl=%2Fgp%2Fpayments-account%2Fsettlement-summary.html&refRID=1E7FYWGBTMXKQW4BNPHR%20', 350, 530, 'scrollbars=yes')"><strong class="small">Rate this page</strong></a>
+
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+      <a class="scf_link" href="https://sellercentral.amazon.com/gp/contact-us/contact-amazon-form.html/ref=ag_contactus_foot_payments?ie=UTF8&urlStr=%2Fgp%2Fpayments-account%2Fsettlement-summary.html">Contact Seller Support</a>
+
+</div>
+
+<div id="sc_footer_links" class="grey">
+<span id="sc_footer_merchant">
+BLINQ
+</span>
+<span>
+&copy; 1999-2012, Amazon.com, Inc. or its affiliates
+</span>
+</div>
+</div>
+</div>
+
+
+
+
+        
+        
+
+<script type="text/javascript">
+
+window.AmazonPopoverImages = {
+  snake: 'https://images-na.ssl-images-amazon.com/images/G/01/javascripts/lib/popover/images/snake._V192571611_.gif',
+  btnClose: 'https://images-na.ssl-images-amazon.com/images/G/01/javascripts/lib/popover/images/btn_close._V192188154_.gif',
+  closeTan: 'https://images-na.ssl-images-amazon.com/images/G/01/nav2/images/close-tan-sm._V192185930_.gif',
+  closeTanDown: 'https://images-na.ssl-images-amazon.com/images/G/01/nav2/images/close-tan-sm-dn._V192185961_.gif',
+  loadingBar: 'https://images-na.ssl-images-amazon.com/images/G/01/javascripts/lib/popover/images/loading-bar-small._V192188123_.gif',
+  pixel: 'https://images-na.ssl-images-amazon.com/images/G/01/icons/blank-pixel._V192192429_.gif'
+};
+var container = document.createElement("DIV");
+container.id = "ap_container";
+if (document.body.childNodes.length) {
+    document.body.insertBefore(container, document.body.childNodes[0]);
+} else {
+    document.body.appendChild(container);
+}
+
+</script>
+
+    <script type="text/javascript" src="https://images-na.ssl-images-amazon.com/images/G/01/browser-scripts/merged-core-js-1.4.2/core-6231623526.js"></script>
+<script type='text/javascript'>
+    amznJQ.addLogical('popover', []);
+</script>
+
+<!-- JSF Bootstrap N/A -->
+
+    
+        <script type="text/javascript">
+            var $ = jQuery;
+        </script>
+    
+
+        
+        
+    <script type="text/javascript" src="https://images-na.ssl-images-amazon.com/images/G/01/browser-scripts/rainier-jquery-ui/rainier-jquery-ui-3158266336.js"></script>
+
+
+        
+    
+        
+    <script type="text/javascript" src="https://images-na.ssl-images-amazon.com/images/G/01/browser-scripts/rainier-core/rainier-core-3006247635.js"></script>
+
+
+
+      
+        
+    <script type="text/javascript" src="https://images-na.ssl-images-amazon.com/images/G/01/browser-scripts/rainier-payments-MYP-UI/rainier-payments-MYP-UI-3976501224.js"></script>
+<script type="text/javascript" src="https://images-na.ssl-images-amazon.com/images/G/01/browser-scripts/rainier-payments-redrive-report/rainier-payments-redrive-report-2684012930.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+    try { fixButtonWidths(); } catch(e) {}
+</script>
+
+
+
+
+
+<div id='be' style='display:none;'><form name='ue_backdetect'><input name='ue_back' value='1' type='hidden'></form><script type="text/javascript">
+if(window.uet){uet("be")}if(window.onLdEnd){if(window.addEventListener){window.addEventListener("load",window.onLdEnd,false)}else{if(window.attachEvent){window.attachEvent("onload",window.onLdEnd)}}}if(window.ueh){ueh(0,window,"load",window.onLd,1)}if(window.ue_pr&&(window.ue_pr==3||window.ue_pr==4)){window.ue._uep()};
+</script>
+</div>
+<noscript><img height=1 width=1 style='display:none;visibility:hidden' src='/gp/uedata/176-6838260-2186306?noscript&amp;id=1E7FYWGBTMXKQW4BNPHR' /></noscript>
+<script type='text/javascript'>
+function updateCsmHit(c){var a=new Date();a.setTime(a.getTime()+(30*60*1000));var d="; expires="+a.toGMTString();var b=(window.ue&&window.ue.t.be)?(ue.t.be-ue_t0):(new Date().getTime()-ue_t0);if(b!=0){document.cookie="csm-hit="+(c/b).toFixed(2)+d+"; path=/"}};
+updateCsmHit(51827);
+</script>
+</body>
+</html>
+
