@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["optoro"]
-  s.date = "2012-05-14"
+  s.date = "2012-05-16"
   s.description = "This gem is intended to wrap Amazon's SellerCentral pages with a Ruby API. Currently this gem supports accessing buyer feedback only."
   s.email = "dev@optoro.com"
   s.extra_rdoc_files = [
@@ -52,6 +52,7 @@ Gem::Specification.new do |s|
     "spec/lib/listing_spec.rb",
     "spec/lib/mechanizer_spec.rb",
     "spec/lib/orders_page_spec.rb",
+    "spec/lib/payments_page_spec.rb",
     "spec/spec_helper.rb",
     "spec/support/page_body_regexen.rb",
     "spec/support/page_examples.rb",
@@ -61,9 +62,12 @@ Gem::Specification.new do |s|
     "spec/support/sample_pages/Feedback Page 2.html",
     "spec/support/sample_pages/Feedback Page Last.html",
     "spec/support/sample_pages/Manage Orders.html",
+    "spec/support/sample_pages/Payments Page.html",
     "spec/support/sample_pages/Seller Central Homepage.html",
     "spec/support/sample_pages/Seller Central Redirect.html",
     "spec/support/sample_pages/Seller Central.html",
+    "spec/support/sample_pages/Settlement Payment Reports 1.html",
+    "spec/support/sample_pages/Settlement Payment Reports 2.html",
     "spec/support/sample_pages/another_listings_page.html",
     "spec/support/sample_pages/listings_last_page.html",
     "spec/support/sample_pages/listings_page_1.html",
