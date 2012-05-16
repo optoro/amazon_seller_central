@@ -23,26 +23,26 @@ describe "InventoryPage" do
 
   it "transforms itself into a set of Listing objects" do
     listings = @first_page.listings
-    listings.size.should == 250
+    listings.size.should == 500
 
-    listings[3].sku.should             == "PR60079-2"
-    listings[3].asin.should            == "B002746WPE"
-    listings[3].product_name.should    == "Dell Latitude D810, D820, D830 Series 15.4inch WXGA LCD Screen [Electronics]"
-    listings[3].created_at.should      == Time.parse("2011-12-01 10:18:35")
-    listings[3].quantity.should        == 0
-    listings[3].condition.should       == "Used - Very Good"
-    listings[3].price_cents.should     == nil
+    listings[3].sku.should             == "PR24386-11"
+    listings[3].asin.should            == "B000MFORRA"
+    listings[3].product_name.should    == "Asa 5505 Sec. Plus License"
+    listings[3].created_at.should      == Time.parse("2012-05-16 12:03:14")
+    listings[3].quantity.should        == 2
+    listings[3].condition.should       == "New"
+    listings[3].price_cents.should     == 31399
     listings[3].low_price.should       == nil
     listings[3].low_price_cents.should == nil
-    listings[3].status.should          == "Incomplete"
+    listings[3].status.should          == "Active"
 
-    listings[6].sku.should             == "PR55562-11"
-    listings[6].asin.should            == "B000WMHHL6"
-    listings[6].product_name.should    == "Kodak K7600-C Li-Ion Universal Battery Charger [CD] [Camera]"
-    listings[6].created_at.should      == Time.parse("2011-12-01 10:09:47")
+    listings[6].sku.should             == "PR23923-11"
+    listings[6].asin.should            == "B002QEBM96"
+    listings[6].product_name.should    == "Nokia E72 Unlocked Phone Featuring GPS with Voice Navigation - U.S. Version with Full Warranty (Zodium Black)"
+    listings[6].created_at.should      == Time.parse("2012-05-16 11:28:07")
     listings[6].quantity.should        == 1
     listings[6].condition.should       == "New"
-    listings[6].price_cents.should     == 1899
+    listings[6].price_cents.should     == 24999
     listings[6].status.should          == "Active"
   end
 
@@ -86,7 +86,7 @@ describe "InventoryPage" do
 
   it "raises an unsupported modification error when trying to set the price on an incomplete listing" do
     listings = @first_page.listings
-    l = listings[0]
+    l = listings[5]
     l.price = 24.26
     lambda {
       @first_page.apply_listings([l])
