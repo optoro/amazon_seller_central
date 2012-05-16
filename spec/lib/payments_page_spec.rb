@@ -6,7 +6,7 @@ describe "PaymentsPage" do
       report_ids = AmazonSellerCentral::PaymentsPage.available_report_ids
       report_ids.class.should == Array
       report_ids.count.should == 10
-      report_ids[4].should == "5917406303"
+      report_ids[4].should == "55555555"
     end
   end
 end
