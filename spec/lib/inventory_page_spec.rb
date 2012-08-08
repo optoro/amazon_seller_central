@@ -23,26 +23,26 @@ describe "InventoryPage" do
 
   it "transforms itself into a set of Listing objects" do
     listings = @first_page.listings
-    listings.size.should == 500
+    listings.size.should == 250
 
-    listings[3].sku.should             == "PR24386-11"
-    listings[3].asin.should            == "B000MFORRA"
-    listings[3].product_name.should    == "Asa 5505 Sec. Plus License"
-    listings[3].created_at.should      == Time.parse("2012-05-16 12:03:14")
-    listings[3].quantity.should        == 2
+    listings[3].sku.should             == "PR87099-11"
+    listings[3].asin.should            == "B002WPG0NM"
+    listings[3].product_name.should    == "Cuisinart 422-30H Contour Stainless 12-Inch Open Skillet with Helper Handle"
+    listings[3].created_at.should      == Time.parse("2012-08-08 12:32:55")
+    listings[3].quantity.should        == 1
     listings[3].condition.should       == "New"
-    listings[3].price_cents.should     == 31399
+    listings[3].price_cents.should     == 3599
     listings[3].low_price.should       == nil
     listings[3].low_price_cents.should == nil
     listings[3].status.should          == "Active"
 
-    listings[6].sku.should             == "PR23923-11"
-    listings[6].asin.should            == "B002QEBM96"
-    listings[6].product_name.should    == "Nokia E72 Unlocked Phone Featuring GPS with Voice Navigation - U.S. Version with Full Warranty (Zodium Black)"
-    listings[6].created_at.should      == Time.parse("2012-05-16 11:28:07")
+    listings[6].sku.should             == "PR86164-11"
+    listings[6].asin.should            == "B000JZD71K"
+    listings[6].product_name.should    == "Dorman 520-223 Control Arm"
+    listings[6].created_at.should      == Time.parse("2012-08-08 12:27:55")
     listings[6].quantity.should        == 1
     listings[6].condition.should       == "New"
-    listings[6].price_cents.should     == 24999
+    listings[6].price_cents.should     == 3399
     listings[6].status.should          == "Active"
   end
 
@@ -86,7 +86,7 @@ describe "InventoryPage" do
 
   it "raises an unsupported modification error when trying to set the price on an incomplete listing" do
     listings = @first_page.listings
-    l = listings[5]
+    l = listings[4]
     l.price = 24.26
     lambda {
       @first_page.apply_listings([l])
