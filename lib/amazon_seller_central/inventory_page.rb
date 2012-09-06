@@ -1,3 +1,5 @@
+require 'andand'
+
 module AmazonSellerCentral
   class InventoryPage < Page
     def initialize(options={})
@@ -8,7 +10,7 @@ module AmazonSellerCentral
     end
 
     def has_next?
-      @has_next ||= @page.search(".//div[@id='nextPage']").any?
+      @has_next ||= (@page.search(".//div[@id='ila-page-next']").first.andand.attributes["class"].value =~ /ila-page-nextDisabled/).nil?
     end
 
     def next_page
