@@ -1,3 +1,4 @@
+require 'andand'
 require 'amazon_seller_central/configuration'
 require 'amazon_seller_central/mechanizer'
 require 'amazon_seller_central/listing_set'
