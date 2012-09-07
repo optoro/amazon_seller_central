@@ -2,8 +2,6 @@ module AmazonSellerCentral
   class PaymentsPage < Page
     attr_accessor :page
 
-
-
     def has_next?
       @has_next ||= @page.search('a').map(&:text).grep(/Next/).any?
     end
