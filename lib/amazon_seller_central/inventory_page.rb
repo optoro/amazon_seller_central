@@ -9,8 +9,8 @@ module AmazonSellerCentral
 
     def has_next?
       @has_next ||= begin
-                      v=(@page.search(".//div[@id='ila-page-next']")
-                      v.first && v.attributes["class"].value !~ /ila-page-nextDisabled/
+                      v = @page.search(".//div[@id='ila-page-next']")
+                      v.first && v.first.attributes["class"].value !~ /ila-page-nextDisabled/
                     end
     end
 
