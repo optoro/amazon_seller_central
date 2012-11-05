@@ -25,25 +25,25 @@ describe "InventoryPage" do
     listings = @first_page.listings
     listings.size.should == 250
 
-    listings[3].sku.should             == "PR87099-11"
-    listings[3].asin.should            == "B002WPG0NM"
-    listings[3].product_name.should    == "Cuisinart 422-30H Contour Stainless 12-Inch Open Skillet with Helper Handle"
-    listings[3].created_at.should      == Time.parse("2012-08-08 12:32:55")
+    listings[3].sku.should             == "PR80470-1"
+    listings[3].asin.should            == "B004TIR1E2"
+    listings[3].product_name.should    == "Motorola DS9208 Desktop Bar Code Reader (DS9208-SR00004NNWW) -"
+    listings[3].created_at.should      == Time.parse("2012-09-06 13:48:12")
     listings[3].quantity.should        == 1
-    listings[3].condition.should       == "New"
-    listings[3].price_cents.should     == 3599
+    listings[3].condition.should       == "Used - Like New"
+    listings[3].price_cents.should     == 20239
     listings[3].low_price.should       == nil
     listings[3].low_price_cents.should == nil
     listings[3].status.should          == "Active"
 
-    listings[6].sku.should             == "PR86164-11"
-    listings[6].asin.should            == "B000JZD71K"
-    listings[6].product_name.should    == "Dorman 520-223 Control Arm"
-    listings[6].created_at.should      == Time.parse("2012-08-08 12:27:55")
-    listings[6].quantity.should        == 1
-    listings[6].condition.should       == "New"
-    listings[6].price_cents.should     == 3399
-    listings[6].status.should          == "Active"
+    listings[0].sku.should             == "PR90962-11"
+    listings[0].asin.should            == "B0012FG8BC"
+    listings[0].product_name.should    == "COGNITIVE 03-02-1519 2.3 X 1 DIR THERM PAPER LABELS GAP CUT,1685 LABELS/ROLL"
+    listings[0].created_at.should      == Time.parse("2012-09-06 14:32:56")
+    listings[0].quantity.should        == 1
+    listings[0].condition.should       == "New"
+    listings[0].price_cents.should     == 8499
+    listings[0].status.should          == "Active"
   end
 
   # it "loads listings appropriately for another sample page" do
@@ -65,7 +65,7 @@ describe "InventoryPage" do
 
   it "accepts a set of Listing objects to apply updates to the page" do
     listings = @first_page.listings
-    l = listings[6]
+    l = listings[0]
     # l.quantity = 0
     # l.price = 225.59
     l.quantity = 2
@@ -78,7 +78,7 @@ describe "InventoryPage" do
     (@first_page.instance_variable_get('@agent').last_page.parser.css('div#msg_saveSuccess')[0]['style'] !~ /display: none/).should be_true
 
     FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/gp/ezdpc-gui/inventory-status/status.html/ref=ag_invmgr_mmap_home', :response => mock_pages[:update_inventory_result_from_page_1])
-    listing = AmazonSellerCentral::Inventory.load_first_page.listings[6]
+    listing = AmazonSellerCentral::Inventory.load_first_page.listings[0]
     listing.sku.should      == l.sku
     listing.quantity.should == l.quantity
     listing.price.should    == l.price
@@ -86,7 +86,7 @@ describe "InventoryPage" do
 
   it "raises an unsupported modification error when trying to set the price on an incomplete listing" do
     listings = @first_page.listings
-    l = listings[4]
+    l = listings[2]
     l.price = 24.26
     lambda {
       @first_page.apply_listings([l])

@@ -53,7 +53,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.0.0)
+  bundler
   faker
   fakeweb
   ffi
