@@ -24,10 +24,10 @@ module AmazonSellerCentral
       mech.follow_link_with(:text => "Payments")
       payments_page = mech.follow_link_with(:text => "All Statements")
       @page = PaymentsPage.new(:page => payments_page, :agent => mech)
-      id_array << @page.page.links_with(:text => "Download Flat File").map{|link| link.href.match(/(#{PAYMENT_FEED_V1}|#{PAYMENT_FEED_V2})(\d+)\.txt/)[2]}}
+      id_array << @page.page.links_with(:text => "Download Flat File").map{|link| link.href.match(/(#{PAYMENT_FEED_V1}|#{PAYMENT_FEED_V2})(\d+)\.txt/)[2]}
       while(@page.has_next?)
         @page = @page.next_page
-        id_array << @page.page.links_with(:text => "Download Flat File").map{|link| link.href.match(/(#{PAYMENT_FEED_V1}|#{PAYMENT_FEED_V2})(\d+)\.txt/)[2]}}
+        id_array << @page.page.links_with(:text => "Download Flat File").map{|link| link.href.match(/(#{PAYMENT_FEED_V1}|#{PAYMENT_FEED_V2})(\d+)\.txt/)[2]}
       end
       id_array.flatten
     end
