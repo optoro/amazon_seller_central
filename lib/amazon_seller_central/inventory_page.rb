@@ -18,7 +18,7 @@ module AmazonSellerCentral
       @next_page ||= begin
                        raise NoNextPageAvailableError unless has_next?
 
-                       next_page = @agent.agent.get("#{@uri_base}&searchPageOffset=#{@page_no + 1}")
+                       next_page = @agent.agent.get("#{@uri_base}?searchPageOffset=#{@page_no + 1}")
                        InventoryPage.new(
                          :page => next_page,
                          :page_no => (@page_no + 1),
