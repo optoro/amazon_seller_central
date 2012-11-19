@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "amazon_seller_central"
-  s.version = "0.2.10"
+  s.version = "0.2.11"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["optoro"]
-  s.date = "2012-11-05"
+  s.date = "2012-11-19"
   s.description = "This gem is intended to wrap Amazon's SellerCentral pages with a Ruby API. Currently this gem supports accessing buyer feedback only."
   s.email = "dev@optoro.com"
   s.extra_rdoc_files = [
