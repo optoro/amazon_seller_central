@@ -24,7 +24,7 @@ module AmazonSellerCentral
     end
 
     protected
-      AZN_DATE_FMT = "%m/%d/%Y"
+      AZN_DATE_FMT = "%m/%d/%y"
       def parse_amazon_time(string)
         Time.strptime(string, "#{AZN_DATE_FMT} %H:%M:%S")
       end
