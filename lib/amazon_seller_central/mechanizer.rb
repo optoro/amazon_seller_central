@@ -25,10 +25,17 @@ module AmazonSellerCentral
       page = agent.get('https://sellercentral.amazon.com/')
       form = page.form_with(:name => 'signin')
 
-      form['email']    = login_email
-      form['password'] = login_password
-      form.submit
-      last_page.body =~ /Welcome! You are signed in as/
+      begin
+        form['email']    = login_email
+        form['password'] = login_password
+        form.submit
+        last_page.body =~ /Welcome! You are signed in as/
+      rescue
+        File.open("/tmp/seller_central_#{Time.now.to_i}.html","w") do |f|
+          f.write page.body
+        end
+        raise
+      end
     end
 
     def follow_link_with(options)
