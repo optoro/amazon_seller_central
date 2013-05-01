@@ -51,7 +51,7 @@ module AmazonSellerCentral
           data = row.search('.//td').map(&:text)
           {
             :date              => parse_amazon_date(data[0]),
-            :rating            => data[1].to_i,
+            :rating            => data[1].gsub(/[^\d]/,'').to_i,
             :comments          => data[2].gsub(/\n\nRespond$/,''),
             :arrived_on_time   => yes_no_nil(data[3]),
             :item_as_described => yes_no_nil(data[4]),
