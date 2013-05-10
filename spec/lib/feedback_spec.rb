@@ -12,11 +12,6 @@ describe "Feedback" do
   end
 
   it "should parse the date correctly" do
-    #stream = File.read(File.expand_path(File.dirname(__FILE__) + '/../support/sample_pages/Feedback Page 1.html'))
-    #FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/feedback/', :body => stream, :content_type => 'text/html')
-    #agent = Mechanize.new
-    #page = agent.get('https://sellercentral.amazon.com/feedback/')
-    #fp = AmazonSellerCentral::FeedbackPage.new(:page => page, :agent => agent)
     fp = AmazonSellerCentral::FeedbackPage.load_first_page
     f = fp.parse
     feedback_date = f.first.date
