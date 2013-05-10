@@ -11,4 +11,12 @@ describe "Feedback" do
     end
   end
 
+  it "should parse the date correctly" do
+    fp = AmazonSellerCentral::FeedbackPage.load_first_page
+    f = fp.parse
+    feedback_date = f.first.date
+    feedback_date.year.should == 2011
+    feedback_date.month.should == 7
+    feedback_date.day.should == 3
+  end
 end
