@@ -23,7 +23,7 @@ module AmazonSellerCentral
 
     def login_to_seller_central
       page = agent.get('https://sellercentral.amazon.com/')
-      form = page.form_with(:name => 'signin')
+      form = page.form_with(:name => 'signIn')
 
       begin
         form['email']    = login_email
