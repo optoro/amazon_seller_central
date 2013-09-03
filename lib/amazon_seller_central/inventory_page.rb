@@ -74,9 +74,11 @@ module AmazonSellerCentral
       # 6 - product name
       # 7 - date created
       # 8 - qty
-      # 9 - condition
-      # 10 - your price
+      # 9 - your price
+      # 10 - condition
       # 11 - low price
+      # 12 - buy-box price
+      # 13 - fulfilled by
       def listing_row_to_object(row)
         l = Listing.new
         row.css('td').each_with_index do |td, i|
@@ -95,9 +97,9 @@ module AmazonSellerCentral
           when 8
             l.quantity = (inputs = td.css('input')).any? ? inputs.first['value'].to_i : txt.to_i
           when 9
-            l.condition = txt
-          when 10
             l.price = get_price(td)
+          when 10
+            l.condition = txt
           when 11
             l.low_price = get_low_price(td)
           when 3
