@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "mechanize", ">= 1.0.0"
+gem "mechanize", ">= 2.0.0"
 # Add dependencies required to use your gem here.
 # Example:
 #   gem "activesupport", ">= 2.3.5"

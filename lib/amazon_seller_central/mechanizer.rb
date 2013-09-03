@@ -1,9 +1,13 @@
 require 'mechanize'
 module AmazonSellerCentral
   class Mechanizer
-    MASQUERADE_AGENTS = ['Mac Safari', 'Mac FireFox', 'Linux Firefox']
+    MASQUERADE_AGENTS = ['Mac Safari', 'Mac FireFox', 'Linux Firefox', 'Windows IE 9']
 
     attr_reader :agent
+
+    def initialize
+      @logged_in = false
+    end
 
     def login_email
       AmazonSellerCentral.configuration.login_email
@@ -22,19 +26,25 @@ module AmazonSellerCentral
     end
 
     def login_to_seller_central
-      page = agent.get('https://sellercentral.amazon.com/')
-      form = page.form_with(:name => 'signIn')
+      return true if @logged_in
+
+      page = agent.get('https://sellercentral.amazon.com/gp/homepage.html')
+      form = page.form_with(:name => 'signinWidget')
 
       begin
-        form['email']    = login_email
+        form['username']    = login_email
         form['password'] = login_password
-        form.submit
-        last_page.body =~ /Welcome! You are signed in as/
-      rescue
-        File.open("/tmp/seller_central_#{Time.now.to_i}.html","w") do |f|
+        p = form.submit
+        if p =~ /better protect/ # capcha!
+          raise CapchaPresentError.new("Holy CAPCHA Batman!")
+        end
+        @logged_in = !!( p.body =~ /Logout/ && p.body =~ /Manage Inventory/ )
+
+      rescue StandardError => e
+        File.open("/tmp/seller_central_#{Time.now.to_i}.html","wb") do |f|
           f.write page.body
         end
-        raise
+        raise e
       end
     end
 
@@ -47,11 +57,13 @@ module AmazonSellerCentral
 
     def reset!
       @agent     = nil
+      @logged_in = false
       #@last_page = nil
     end
 
     class LinkNotFoundError < StandardError; end
     class AgentResetError < StandardError; end
+    class CapchaPresentError < StandardError; end
 
   end
 end
