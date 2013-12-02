@@ -15,20 +15,18 @@ def mock_seller_central_page_results!
   FakeWeb.allow_net_connect = false
   FakeWeb.register_uri(:any, 'https://sellercentral.amazon.com/', :response => mock_pages[:seller_central])
   FakeWeb.register_uri(:any, 'https://sellercentral.amazon.com/gp/homepage.html', :response => mock_pages[:seller_central_redirect])
-  FakeWeb.register_uri(:post, 'https://sellercentral.amazon.com/gp/sign-in/sign-in.html', :response => mock_pages[:seller_central_homepage])
-  FakeWeb.register_uri(:post, 'https://sellercentral.amazon.com/ap/widget', :response => mock_pages[:seller_central_homepage])
+  FakeWeb.register_uri(:post, 'https://sellercentral.amazon.com/ap/widget', :response => mock_pages[:seller_central_homepage]) # sign in
 
   # Feedback
-  FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/gp/feedback-manager/home.html/ref=ag_feedback_mmap_home', :response => mock_pages[:feedback_manager])
   FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/gp/seller-rating/pages/feedback-manager.html/ref=ag_feedback_dnav_home_', :response => mock_pages[:feedback_manager])
   FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/gp/feedback-manager/view-all-feedback.html?ie=UTF8&sortType=sortByDate&dateRange=&descendingOrder=1', :response => mock_pages[:feedback_page_1])
   FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/gp/feedback-manager/view-all-feedback.html?ie=UTF8&sortType=sortByDate&pageSize=50&dateRange=&currentPage=2&descendingOrder=1', :response => mock_pages[:feedback_page_2])
   FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/gp/feedback-manager/view-all-feedback.html?ie=UTF8&sortType=sortByDate&pageSize=50&dateRange=&currentPage=3&descendingOrder=1', :response => mock_pages[:feedback_page_last])
 
   # Inventory
-  FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/gp/ezdpc-gui/inventory-status/status.html/ref=ag_invmgr_mmap_home', :response => mock_pages[:listings_page_1])
-  FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/gp/ezdpc-gui/inventory-status/status.html/ref=ag_invmgr_mmap_home&searchPageOffset=2', :response => mock_pages[:listings_page_2])
-  FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/gp/ezdpc-gui/inventory-status/status.html/ref=ag_invmgr_mmap_home&searchPageOffset=3', :response => mock_pages[:listings_last_page])
+  FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/myi/search/DefaultView.amzn/ref=ag_invmgr_dnav_home_', :response => mock_pages[:listings_page_1])
+  FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/myi/search/DefaultView.amzn/ref=ag_invmgr_dnav_home_?searchPageOffset=2', :response => mock_pages[:listings_page_2])
+  FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/myi/search/DefaultView.amzn/ref=ag_invmgr_dnav_home_?searchPageOffset=3', :response => mock_pages[:listings_last_page])
   FakeWeb.register_uri(:post, 'https://sellercentral.amazon.com/myi/search/ProductSummary', :response => mock_pages[:update_inventory_result_from_page_1])
   FakeWeb.register_uri(:post, 'https://sellercentral.amazon.com/myi/search/ProductSummary;jsessionid=10F6EC9ECBC6E9C3B45EB5DEC1B13D46', :response => mock_pages[:update_inventory_result_from_page_1])
   
