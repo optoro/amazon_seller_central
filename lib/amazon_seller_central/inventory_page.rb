@@ -33,7 +33,7 @@ module AmazonSellerCentral
       @listings ||= begin
                       set = ListingSet.new
                       # being more specific here breaks on some pages
-                      @page.parser.css('tr').select{|r| r['id'] =~ /^sku-/ && r.css('td').size == 14 }.each do |row|
+                      @page.parser.css('tr').select{|r| r['id'] =~ /^sku-/ && r.css('td').size == 15 }.each do |row|
                         set << listing_row_to_object(row)
                       end
                       set
@@ -96,11 +96,11 @@ module AmazonSellerCentral
             l.created_at = parse_amazon_time(txt)
           when 8
             l.quantity = (inputs = td.css('input')).any? ? inputs.first['value'].to_i : txt.to_i
-          when 9
-            l.price = get_price(td)
           when 10
-            l.condition = txt
+            l.price = get_price(td)
           when 11
+            l.condition = txt
+          when 12
             l.low_price = get_low_price(td)
           when 3
             l.status = txt

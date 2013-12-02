@@ -25,25 +25,25 @@ describe "InventoryPage" do
     listings = @first_page.listings
     listings.size.should == 250
 
-    listings[3].sku.should             == "PR80470-1"
-    listings[3].asin.should            == "B004TIR1E2"
-    listings[3].product_name.should    == "Motorola DS9208 Desktop Bar Code Reader (DS9208-SR00004NNWW) -"
-    listings[3].created_at.should      == Time.parse("2012-09-06 13:48:12")
-    listings[3].quantity.should        == 1
-    listings[3].condition.should       == "Used - Like New"
-    listings[3].price_cents.should     == 20239
+    listings[3].sku.should             == "PR131121-11"
+    listings[3].asin.should            == "B0015AB7U6"
+    listings[3].product_name.should    == "Pinnacle Speakers PS Sub 225 12-Inch 225 Watt Front Firing Powered Subwoofer (Black)"
+    listings[3].created_at.should      == Time.parse("2013-12-02 10:52:21")
+    listings[3].quantity.should        == 0
+    listings[3].condition.should       == "New"
+    listings[3].price_cents.should     == 19069
     listings[3].low_price.should       == nil
     listings[3].low_price_cents.should == nil
-    listings[3].status.should          == "Active"
+    listings[3].status.should          == "Inactive (Out of Stock)"
 
-    listings[0].sku.should             == "PR90962-11"
-    listings[0].asin.should            == "B0012FG8BC"
-    listings[0].product_name.should    == "COGNITIVE 03-02-1519 2.3 X 1 DIR THERM PAPER LABELS GAP CUT,1685 LABELS/ROLL"
-    listings[0].created_at.should      == Time.parse("2012-09-06 14:32:56")
-    listings[0].quantity.should        == 1
-    listings[0].condition.should       == "New"
-    listings[0].price_cents.should     == 8499
-    listings[0].status.should          == "Active"
+    listings[0].sku.should             == "PR111001-1"
+    listings[0].asin.should            == "B00C81G378"
+    listings[0].product_name.should    == 'Ematic 7" Pro Google Android 4.0 Capacitive Multi-Touch Tablet 4GB w/WiFi Black'
+    listings[0].created_at.should      == Time.parse("2013-12-02 11:03:04")
+    listings[0].quantity.should        == 0
+    listings[0].condition.should       == "Used - Like New"
+    listings[0].price_cents.should     == 4899
+    listings[0].status.should          == "Inactive (Out of Stock)"
   end
 
   # it "loads listings appropriately for another sample page" do
@@ -64,6 +64,7 @@ describe "InventoryPage" do
   # end
 
   it "accepts a set of Listing objects to apply updates to the page" do
+    pending "Needs FakeWeb updates."
     listings = @first_page.listings
     l = listings[0]
     # l.quantity = 0
@@ -85,6 +86,7 @@ describe "InventoryPage" do
   end
 
   it "raises an unsupported modification error when trying to set the price on an incomplete listing" do
+    pending "Needs FakeWeb updates."
     listings = @first_page.listings
     l = listings[2]
     l.price = 24.26

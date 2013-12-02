@@ -10,16 +10,16 @@ describe "ListingSet" do
   end
 
   it "allows find by sku" do
-    listing = @listing_set.find("PR68921-11")
-    listing.sku.should  == "PR68921-11"
-    listing.asin.should == "B003WFLGLM"
+    listing = @listing_set.find("PR111001-1")
+    listing.sku.should  == "PR111001-1"
+    listing.asin.should == "B00C81G378"
   end
 
   it "allows find by asin" do
-    listings = @listing_set.find("B003WFLGLM")
+    listings = @listing_set.find("B00C81G378")
     listings.should be_kind_of(Enumerable)
-    listings.first.sku.should  == "PR68921-11"
-    listings.first.asin.should == "B003WFLGLM"
+    listings.first.sku.should  == "PR111001-1"
+    listings.first.asin.should == "B00C81G378"
   end
 
   # it "allows where by quantity" do

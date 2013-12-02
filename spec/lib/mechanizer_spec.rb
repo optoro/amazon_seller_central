@@ -4,7 +4,7 @@ describe "Mechanizer" do
   it "retains access to the last page loaded" do
     mech = AmazonSellerCentral.mechanizer
     mech.login_to_seller_central
-    mech.last_page.body.should =~ /Welcome! You are signed in as/
+    mech.last_page.body.should =~ /BLINQ/
   end
 
   it "logs in and returns the home page" do
@@ -40,11 +40,12 @@ describe "Mechanizer" do
   it "logs in twice successfully" do
     mech = AmazonSellerCentral.mechanizer
     mech.login_to_seller_central
-    mech.last_page.body.should =~ /Welcome! You are signed in as/
+    mech.last_page.body.should =~ /BLINQ/
     mech.follow_link_with :text => "Feedback"
 
+    mech.reset!
     mech.login_to_seller_central
-    mech.last_page.body.should =~ /Welcome! You are signed in as/
+    mech.last_page.body.should =~ /BLINQ/
   end
 
 end
