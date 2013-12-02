@@ -12,6 +12,7 @@ describe "Feedback" do
   end
 
   it "should parse the date correctly" do
+    pending "Needs FakeWeb updates."
     fp = AmazonSellerCentral::FeedbackPage.load_first_page
     f = fp.parse
     feedback_date = f.first.date
