@@ -27,25 +27,41 @@ module AmazonSellerCentral
 
     def login_to_seller_central
       return true if @logged_in
-
-      page = agent.get('https://sellercentral.amazon.com/gp/homepage.html')
-      form = page.form_with(:name => 'signinWidget')
-
+      tries = 3
       begin
-        form['username']    = login_email
-        form['password'] = login_password
-        p = form.submit
-        if p =~ /better protect/ # capcha!
-          raise CapchaPresentError.new("Holy CAPCHA Batman!")
-        end
-        @logged_in = !!( p.body =~ /Logout/ && p.body =~ /Manage Inventory/ )
+        tries -= 1
+        page = agent.get('https://sellercentral.amazon.com/gp/homepage.html')
+        form = page.form_with(:name => 'signinWidget')
 
-      rescue StandardError => e
-        File.open("/tmp/seller_central_#{Time.now.to_i}.html","wb") do |f|
-          f.write page.body
+        begin
+          form['username']    = login_email
+          form['password']    = login_password
+          p = form.submit
+
+          if p =~ /better protect/ # capcha!
+            raise CapchaPresentError.new("Holy CAPCHA Batman!")
+          end
+          @logged_in = !!( p.body =~ /Logout/ && p.body =~ /Manage Inventory/ )
+
+        rescue StandardError => e
+          File.open("/tmp/seller_central_#{Time.now.to_i}.html","wb") do |f|
+            f.write page.body
+          end
+          raise e
         end
-        raise e
+
+        # New device verification
+        if p.body =~ /What is the ZIP Code/
+          form = p.form_with(:name => 'ap_dcq_form')
+          form.dcq_question_subjective_1 = '20706'
+          p = form.submit # This raises a response code error, :-(
+        end
+
+      rescue Mechanize::ResponseCodeError
+        retry if tries > 0
+        raise
       end
+
     end
 
     def follow_link_with(options)
