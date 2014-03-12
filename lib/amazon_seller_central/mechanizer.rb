@@ -3,6 +3,12 @@ module AmazonSellerCentral
   class Mechanizer
     MASQUERADE_AGENTS = ['Mac Safari', 'Mac FireFox', 'Linux Firefox', 'Windows IE 9']
 
+    # constants for the verification page if logged in from a new device
+    VERIF_PAGE_PATTERN      = /What is the ZIP Code/
+    VERIF_PAGE_FORM_NAME    = 'ap_dcq_form'
+    VERIF_PAGE_FIELD_NAME   = 'dcq_question_subjective_1'
+    VERIF_PAGE_ZIP_CODE     = '20706'
+
     attr_reader :agent
 
     def initialize
@@ -51,9 +57,9 @@ module AmazonSellerCentral
         end
 
         # New device verification
-        if p.body =~ /What is the ZIP Code/
-          form = p.form_with(:name => 'ap_dcq_form')
-          form.dcq_question_subjective_1 = '20706'
+        if p.body =~ VERIF_PAGE_PATTERN
+          form = p.form_with(:name => VERIF_PAGE_FORM_NAME)
+          form[VERIF_PAGE_FIELD_NAME] = VERIF_PAGE_ZIP_CODE
           p = form.submit # This raises a response code error, :-(
         end
 
