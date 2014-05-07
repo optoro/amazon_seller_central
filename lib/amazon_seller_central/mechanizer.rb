@@ -67,7 +67,7 @@ module AmazonSellerCentral
         retry if tries > 0
         raise
       end
-
+      true
     end
 
     def follow_link_with(options)
