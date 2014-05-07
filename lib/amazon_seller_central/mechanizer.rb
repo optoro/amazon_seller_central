@@ -39,6 +39,8 @@ module AmazonSellerCentral
         page = agent.get('https://sellercentral.amazon.com/gp/homepage.html')
         form = page.form_with(:name => 'signinWidget')
 
+        raise FormNotFoundError unless form
+
         begin
           form['username']    = login_email
           form['password']    = login_password
@@ -63,8 +65,11 @@ module AmazonSellerCentral
           p = form.submit # This raises a response code error, :-(
         end
 
-      rescue Mechanize::ResponseCodeError
-        retry if tries > 0
+      rescue Mechanize::ResponseCodeError, FormNotFoundError
+        if tries > 0
+          sleep 10
+          retry if tries > 0
+        end
         raise
       end
       true
@@ -84,6 +89,7 @@ module AmazonSellerCentral
     end
 
     class LinkNotFoundError < StandardError; end
+    class FormNotFoundError < StandardError; end
     class AgentResetError < StandardError; end
     class CapchaPresentError < StandardError; end
 
