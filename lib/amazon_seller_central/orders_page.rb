@@ -1,7 +1,12 @@
 module AmazonSellerCentral
   class OrdersPage < Page
+
+    DATE_CELL_INDEX = 1
+    ORDER_CELL_INDEX = 2
+    STATUS_CELL_INDEX = 8
+
     attr_accessor :body
-    
+
     def initialize
       @page_no = 0
     end
@@ -20,7 +25,7 @@ module AmazonSellerCentral
 
     def self.pending_orders
       uri_base = 'https://sellercentral.amazon.com/gp/orders-v2/list/ref=ag_myo_dos4_home?ie=UTF8&showCancelled=0&searchType=OrderStatus&ignoreSearchType=1&statusFilter=Pending&searchFulfillers=mfn&preSelectedRange=30&searchDateOption=preSelected&sortBy=OrderStatusDescending&itemsPerPage=100'
-      
+
       mech = AmazonSellerCentral.mechanizer
       mech.login_to_seller_central
       page = mech.agent.get(uri_base)
@@ -44,11 +49,11 @@ module AmazonSellerCentral
       row.css('td').each_with_index do |td, i|
         txt = td.text.strip
         case i
-        when 1
+        when DATE_CELL_INDEX
           o.date = Time.parse(txt)
-        when 4
+        when ORDER_CELL_INDEX
           o.order_id = txt.match(/^(\d{3}-\d+-\d+)\s/)[1]
-        when 12
+        when STATUS_CELL_INDEX
           o.status = txt
         end
       end
