@@ -49,7 +49,20 @@ module AmazonSellerCentral
           if p =~ /better protect/ # capcha!
             raise CapchaPresentError.new("Holy CAPCHA Batman!")
           end
-          @logged_in = !!( p.body =~ /Logout/ && p.body =~ /Manage Inventory/ )
+
+          @logged_in = !!( p.body =~ /Logout/ )
+
+          unless p.body =~ /Manage Inventory/
+            marketplace_id = Mechanize::Form::SelectList.new((p / '#sc-mkt-switcher-select').first)
+                               .options
+                               .select { |option| option.text == 'www.amazon.com' }
+                               .first
+                               .value
+
+            # The dropdown that selects the subsite uses javascript to change the page location,
+            # so we need to query the url directly.
+            p = agent.get('https://sellercentral.amazon.com/gp/utilities/set-rainier-prefs.html?ie=UTF8&url=&marketplaceID=' + marketplace_id)
+          end
 
         rescue StandardError => e
           File.open("/tmp/seller_central_#{Time.now.to_i}.html","wb") do |f|
