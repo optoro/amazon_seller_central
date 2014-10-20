@@ -1,5 +1,6 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
+require 'pry-byebug'
 require 'rspec'
 require 'faker'
 require 'amazon_seller_central'
