@@ -7,8 +7,8 @@ gem "mechanize", ">= 2.0.0"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
-group :development do
-  gem "rspec", "~> 2.3.0"
+group :development, :test do
+  gem "rspec", "~> 2.13"
   gem "bundler"
   gem "jeweler"
   gem "simplecov"
@@ -19,4 +19,5 @@ group :development do
   gem 'faker'
   gem 'fakeweb'
   gem 'pry'
+  gem 'pry-byebug'
 end
