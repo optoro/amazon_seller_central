@@ -33,7 +33,7 @@ module AmazonSellerCentral
       @listings ||= begin
                       set = ListingSet.new
                       # being more specific here breaks on some pages
-                      @page.parser.css('tr').select{|r| r['id'] =~ /^sku-/ && r.css('td').size == 15 }.each do |row|
+                      @page.parser.css('tr').select{|r| r['id'] =~ /^sku-/ && r.css('td').size == 14 }.each do |row|
                         set << listing_row_to_object(row)
                       end
                       set
