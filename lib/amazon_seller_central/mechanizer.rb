@@ -53,6 +53,7 @@ module AmazonSellerCentral
           @logged_in = !!( p.body =~ /Logout/ )
 
           unless p.body =~ /Manage Inventory/
+            raise StandardError, '#sc-mkt-switcher-select not found in page' unless p / '#sc-mkt-switcher-select'
             marketplace_id = Mechanize::Form::SelectList.new((p / '#sc-mkt-switcher-select').first)
                                .options
                                .select { |option| option.text == 'www.amazon.com' }
