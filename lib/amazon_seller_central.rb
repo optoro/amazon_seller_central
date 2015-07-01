@@ -22,6 +22,6 @@ module AmazonSellerCentral
   end
 
   def self.mechanizer
-    AmazonSellerCentral::Mechanizer.new
+    @mechanizer ||= AmazonSellerCentral::Mechanizer.new
   end
 end

@@ -2,6 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe "FeedbackPage" do
   before :all do
+    mock_seller_central_page_results!
     @first_page_test_regex  = FEEDBACK_FIRST_PAGE_TEST_REGEX
     @second_page_test_regex = FEEDBACK_SECOND_PAGE_TEST_REGEX
     @last_page_test_regex   = FEEDBACK_LAST_PAGE_TEST_REGEX
@@ -9,6 +10,10 @@ describe "FeedbackPage" do
     @first_page  = AmazonSellerCentral::FeedbackPage.load_first_page
     @second_page = @first_page.next_page
     @last_page   = @second_page.next_page
+  end
+
+  before :each do
+    mock_seller_central_page_results!
   end
 
   it_should_behave_like "all pages"

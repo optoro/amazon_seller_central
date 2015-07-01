@@ -17,6 +17,7 @@ describe "Inventory" do
   end
 
   it "passes a page to a block when given" do
+    pending
     last_seen = nil
     AmazonSellerCentral::Inventory.each_page do |page|
       last_seen = page
