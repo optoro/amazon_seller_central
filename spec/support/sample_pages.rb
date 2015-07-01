@@ -19,6 +19,7 @@ def mock_seller_central_page_results!
 
   # Feedback
   FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/gp/seller-rating/pages/feedback-manager.html/ref=ag_feedback_dnav_home_', :response => mock_pages[:feedback_manager])
+  FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/gp/feedback-manager/home.html/ref=ag_feedback_snav_allfeedbk', :response => mock_pages[:feedback_manager])
   FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/gp/feedback-manager/view-all-feedback.html?ie=UTF8&sortType=sortByDate&dateRange=&descendingOrder=1', :response => mock_pages[:feedback_page_1])
   FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/gp/feedback-manager/view-all-feedback.html?ie=UTF8&sortType=sortByDate&pageSize=50&dateRange=&currentPage=2&descendingOrder=1', :response => mock_pages[:feedback_page_2])
   FakeWeb.register_uri(:get, 'https://sellercentral.amazon.com/gp/feedback-manager/view-all-feedback.html?ie=UTF8&sortType=sortByDate&pageSize=50&dateRange=&currentPage=3&descendingOrder=1', :response => mock_pages[:feedback_page_last])
