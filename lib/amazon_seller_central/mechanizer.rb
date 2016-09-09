@@ -1,7 +1,7 @@
 require 'mechanize'
 module AmazonSellerCentral
   class Mechanizer
-    MASQUERADE_AGENTS = ['Mac Safari', 'Mac FireFox', 'Linux Firefox', 'Windows IE 9']
+    MASQUERADE_AGENTS = ['Mac Safari', 'Mac Firefox', 'Linux Firefox', 'Windows IE 9']
 
     # constants for the verification page if logged in from a new device
     VERIF_PAGE_PATTERN      = /What is the ZIP Code/
