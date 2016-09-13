@@ -43,7 +43,7 @@ module AmazonSellerCentral
 
         begin
           form['email']    = login_email
-          form['password']    = login_password
+          form['password'] = login_password
           p = form.submit
 
           if p =~ /better protect/ # capcha!
