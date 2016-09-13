@@ -37,8 +37,7 @@ def mock_seller_central_page_results!
                                 "&searchDateOption=preSelected&sortBy=OrderStatusDescending&itemsPerPage=100", :response => mock_pages[:manage_orders])
   #Payments
   FakeWeb.register_uri(:get, "https://sellercentral.amazon.com/gp/payments-account/settlement-summary.html/ref=ag_payments_mmap_home", :response => mock_pages[:payments_page])  
-  FakeWeb.register_uri(:get, "https://sellercentral.amazon.com/gp/payments-account/past-settlements.html/ref=ag_xx_cont_payments
-", :response => mock_pages[:settlement_payment_reports_1])
+  FakeWeb.register_uri(:get, "https://sellercentral.amazon.com/gp/payments-account/past-settlements.html/ref=ag_xx_cont_payments", :response => mock_pages[:settlement_payment_reports_1])
   FakeWeb.register_uri(:get, "https://sellercentral.amazon.com/gp/payments-account/past-settlements.html?ie=UTF8&token=njdPQHK1musSlb0KlDGD99KUYKQ%23zV7lgX5Oj0Etu_bKiIQ1nIJTcWT6_qxMQV64LHg1q9uXdxmrudQIIJAyxRmi4b-i8hLn2IWNFflMXdYTq7M8pZjxhRHSeh3KzQ8xgG_aIEPfvQe8WgLo1mCtmWWEiHY_Ya0l3gGJHMI6t3vmul2srxOxOJ5Qr78jR-rYRKqH-cdfYxrnzyXwOs9uYGVIrZk_CYB6jfQJdkrVI4SqblrlDHbXNPkNSnupUT1re4FHW-eQw4utoUrQfdWHXEzzeeNh6Tqiuv6w8A9qrNeUcSfsibK4wgQkXay4uBA6hTDOSII2iZrwvPexL3OimCWfoFkFFKP8Wipmk8rMajsPPME0ao-IbyKkDjBi0cokkTg4CxVEmOM3kT-4OI4DofYrbw1vV7wf1nL5DWZVOD4o-Y8Pmw", :response => mock_pages[:settlement_payment_reports_2])
   
 end
