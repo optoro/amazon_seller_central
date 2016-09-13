@@ -37,13 +37,13 @@ module AmazonSellerCentral
       begin
         tries -= 1
         page = agent.get('https://sellercentral.amazon.com/gp/homepage.html')
-        form = page.form_with(:name => 'signinWidget')
+        form = page.form_with(:name => 'signIn')
 
         raise FormNotFoundError unless form
 
         begin
-          form['username']    = login_email
-          form['password']    = login_password
+          form['email']    = login_email
+          form['password'] = login_password
           p = form.submit
 
           if p =~ /better protect/ # capcha!
