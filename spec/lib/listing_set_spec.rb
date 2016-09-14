@@ -2,6 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe "ListingSet" do
   before :all do
+    AmazonSellerCentral.mechanizer.reset!
     @listing_set = AmazonSellerCentral::Inventory.load_first_page.listings
   end
 

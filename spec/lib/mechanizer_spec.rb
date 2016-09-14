@@ -3,6 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe "Mechanizer" do
   it "retains access to the last page loaded" do
     mech = AmazonSellerCentral.mechanizer
+    mech.reset!
     mech.login_to_seller_central
     mech.last_page.body.should =~ /BLINQ/
   end
