@@ -1,3 +1,5 @@
+[No longer supported.  Deprecated.]
+
 # amazon\_seller\_central
 
 This gem wraps Amazon's SellerCentral pages with a Ruby API.
